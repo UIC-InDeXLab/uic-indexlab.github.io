@@ -16,6 +16,7 @@ st += '  <ul class="navbar-nav mr-auto"> ';
 //st += '    <li class="nav-item active"> ';
 //st += '      <a class="nav-link" href="'+path+'projects.htm">Projects<span class="sr-only">(current)</span></a> ';
 //st += '    </li> ';
+/*
 st+= '     <li class="nav-item dropdown">';
 st+= '        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 st+= '          Pinned Systems&Repos';
@@ -25,7 +26,6 @@ st+= '          <a class="dropdown-item" href="https://uic-indexlab.github.io/Ne
 st+= '          <a class="dropdown-item" href="https://github.com/UIC-InDeXLab/RSR/" target="_blank"> <img src="imgs/github.png" width="40pt"/>RSR 🧮: Efficient Matrix Multiplication for Binary and Ternary NNs</a>';
 st+= '        </div>';
 st += '    </li> ';
-/*
 st+= '     <li class="nav-item dropdown">';
 st+= '        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 st+= '          Project';
