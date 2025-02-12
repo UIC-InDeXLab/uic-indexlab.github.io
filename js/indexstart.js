@@ -18,7 +18,17 @@ st += '  <ul class="navbar-nav mr-auto"> ';
 //st += '    </li> ';
 st+= '     <li class="nav-item dropdown">';
 st+= '        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-st+= '          Presentations';
+st+= '          Pinned Systems&Repos';
+st+= '        </a>';
+st+= '        <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+st+= '          <a class="dropdown-item" href="https://uic-indexlab.github.io/Needle/"><img src="imgs/needlelogo.png" width="70pt"/> Needle🪡🔍: An Image Database for Answering Complex Natural Language Queries</a>';
+st+= '          <a class="dropdown-item" href="https://github.com/UIC-InDeXLab/RSR/" target="_blank"> <img src="imgs/github.png" width="40pt"/>RSR 🧮: Efficient Matrix Multiplication for Binary and Ternary NNs</a>';
+st+= '        </div>';
+st += '    </li> ';
+/*
+st+= '     <li class="nav-item dropdown">';
+st+= '        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+st+= '          Project';
 st+= '        </a>';
 st+= '        <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
 st+= '          <a class="dropdown-item" href="'+path+'tutorial22.htm"> <img src="imgs/sigmod22.png" width="130pt"/>"Responsible Data Integration: Next-generation Challenges"</a>';
@@ -26,6 +36,7 @@ st+= '          <a class="dropdown-item" href="http://wp.sigmod.org/?p=3174" tar
 st+= '          <a class="dropdown-item" href="'+path+'tutorial20.htm"> <img src="imgs/vldb2020-logo.png" width="50pt"/>Tutorial: "Fairly Evaluating and Scoring Items in a Data Set"</a>';
 st+= '        </div>';
 st += '    </li> ';
+*/
 /*st+= '     <li class="nav-item dropdown">';
 st+= '        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 st+= '          Tools';
