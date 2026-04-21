@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSF IIS-2348919 | Fairness-aware Data Structures for Approximate Query Processing</title>
+  <meta name="description" content="Project webpage for NSF IIS-2348919 (2024–2027): Fairness-aware Data Structures for Approximate Query Processing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-layout">
+        <div class="hero-main">
+          <div class="eyebrow">NSF Project Website</div>
+          <h1>Fairness-aware Data Structures for Approximate Query Processing</h1>
+          <p class="subtitle">
+            NSF IIS-2348919 (2024–2027) · III: Small
+          </p>
+          <p class="hero-text">
+            This project studies how to build approximate query processing methods and supporting data structures that are not only fast and scalable, but also fairness-aware. The goal is to develop principled foundations and practical techniques so approximate answers remain useful, efficient, and more equitable across groups.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2348919" target="_blank" rel="noopener noreferrer">View NSF Award</a>
+            <a class="button button-secondary" href="#overview">Project Overview</a>
+          </div>
+        </div>
+
+        <aside class="hero-toc" aria-label="Table of contents">
+          <p class="section-label">Table of Content</p>
+          <nav class="toc-inner">
+            <a href="#overview">Overview</a>
+            <a href="#publications">Project Outcomes</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="overview">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>Why this project matters</h2>
+        </div>
+        <div>
+          <p>
+            The abundance of data, coupled with recent advances in computation, has transformed almost every aspect of modern life. At the center of this transformation are data structures, which make it possible to store, index, summarize, and query massive datasets efficiently enough for real-world systems.
+          </p>
+          <p>
+            As data-driven technologies become increasingly embedded in everyday decision-making, however, their drawbacks and potential harms also become more visible, especially when systems produce biased outcomes. This project revisits classical data structures for approximate query processing through the lens of fairness. It envisions a future in which fairness is a first-class concern of database systems, and where fairness issues in database indices and summaries can be identified, analyzed, and resolved directly at the systems level.
+          </p>
+          <p>
+            To achieve this goal, the project develops data structures with theoretical guarantees that support group fairness across several core domains, including hashing, membership estimation, aggregate query estimation, and approximate ranking and selection query answering. The long-term objective is to build a system for fair data structures for approximate query processing that can integrate naturally into existing data management systems, bringing efficiency, accuracy, and fairness together as inseparable design principles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="publications">
+      <div class="container">
+        <p class="section-label">Outcomes and Publications</p>
+        <h2>Plublications</h2>
+
+        <div class="pub-layout">
+          <aside class="pub-toc">
+            <h3>Publications</h3>
+            <ol>
+            <h5>Fair Data Structures</h5>
+              <li><a href="#fairhash">FairHash</a></li>
+              <li><a href="#fair-count-min">Fair-Count-Min</a></li>
+              <li><a href="#fair-epsilon-nets">Fair Epsilon Nets and Geometric Hitting Sets</a></li>
+            <h5>Beyond Data Structures</h5>
+              <li><a href="#fair-set-cover">Fair Set Cover</a></li>
+              <li><a href="#dynamic-necklace-splitting">Dynamic Necklace Splitting</a></li>
+              <li><a href="#mining-the-minoria">Mining the Minoria</a></li>
+            </ol>
+            <p class="toc-note">This list will be updated during the course of project.</p>
+          </aside>
+
+          <div class="pub-content">
+            <div class="pub-group-heading">Fair Data Structures</div>
+
+            <article class="paper-card" id="fairhash">
+              <div class="paper-tag">SIGMOD 2024</div>
+              <h3>FairHash: A Fair and Memory/Time-efficient Hashmap</h3>
+              <p class="paper-meta">
+                Nima Shahbazi, Stavros Sintos, and Abolfazl Asudeh · <em>Proc. ACM Manag. Data</em> 2, 3, Article 136, June 2024, 29 pages
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/fairhash.jpg" alt="Comparison of traditional hashing, data-informed hashing, and FairHash">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Hashmaps are among the most widely used data structures in computing, serving as a basic primitive in data processing, indexing, caching, and large-scale systems. Yet standard hash functions are designed to optimize efficiency, not fairness.
+                  </p>
+                  <p>
+                    Given a dataset, traditional random hashmaps do not uniformly distribute points across a fixed number of buckets. Even data-informed hashmaps, while able to improve bucket balance, may still fail to preserve equal group representation inside each bucket. As a result, they can introduce systematic disparities that later propagate through downstream analytics and decision-making pipelines.
+                  </p>
+                  <p>
+                    FairHash addresses this issue directly. It guarantees zero unfairness while simultaneously ensuring a uniform distribution of points across buckets and equal group ratios within each bucket, regardless of how the original data is distributed.
+                  </p>
+                  <p>
+                    Formally, FairHash satisfies <em>pairwise fairness</em>: for pairs of points drawn from different demographic groups, the collision probability, and therefore the false positive rate, is exactly <em>1/m</em>, where <em>m</em> is the number of buckets. This gives a precise fairness guarantee at the level of the data structure itself.
+                  </p>
+                  <p>
+                    To the best of our knowledge, FairHash was the first work to study group fairness in a fundamental data structure. The design combines ideas from computational geometry with recent advances in the elegant yet less widely known problem of necklace splitting.
+                  </p>
+                  <p>
+                    Beyond its theoretical contribution, FairHash has clear practical relevance across the responsible data science pipeline, wherever hashing is used as a building block for efficient storage, retrieval, or approximate processing.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Nima Shahbazi, Stavros Sintos, and Abolfazl Asudeh. 2024. <em>FairHash: A Fair and Memory/Time-efficient Hashmap</em>. Proc. ACM Manag. Data 2, 3, Article 136 (June 2024), 29 pages. https://doi.org/10.1145/3654939
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://dl.acm.org/doi/10.1145/3654939" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/FairHash-asudeh.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="fair-count-min">
+              <div class="paper-tag">SIGMOD 2026</div>
+              <h3>Fair-Count-Min: Frequency Estimation under Equal Group-wise Approximation Factor</h3>
+              <p class="paper-meta">
+                Nima Shahbazi, Stavros Sintos, and Abolfazl Asudeh · <em>Proc. ACM Manag. Data</em> 4, 3 (SIGMOD), Article 179 (June 2026), 42 pages
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/fcm.jpg" alt="Illustration for the Fair-Count-Min paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Frequency estimation is one of the core tasks in streaming data systems. When data arrives too quickly or in too large a volume to store explicitly, systems often rely on compact sketches such as Count-Min to answer aggregate queries approximately while using only sublinear space.
+                  </p>
+                  <p>
+                    But compactness comes with error. In the classical Count-Min sketch, the additive approximation error is not experienced equally across all groups. In practice, this means that less frequent or less represented groups can suffer disproportionately larger relative distortion, creating an important fairness concern in data analysis and monitoring.
+                  </p>
+                  <p>
+                    Fair-Count-Min revisits this classical sketch from a fairness perspective. The goal is not only to estimate frequencies efficiently, but also to ensure that the expected approximation factor is distributed equally across groups rather than being concentrated on the unpopular ones.
+                  </p>
+                  <p>
+                    To accomplish this, the paper introduces a column-partitioning strategy together with group-aware semi-uniform hashing. This design eliminates collisions between elements from different groups, which is exactly the mechanism through which unequal error tends to arise in standard sketches.
+                  </p>
+                  <p>
+                    We provide formal guarantees for group fairness, analyze the cost of enforcing it, and evaluate the method extensively on real-world datasets against representative state-of-the-art baselines. The results show that Fair-Count-Min achieves fairness with only a generally small additional error while preserving efficiency comparable to the standard Count-Min sketch.
+                  </p>
+                  <p>
+                    More broadly, this work demonstrates that even highly optimized streaming primitives can be redesigned so fairness is built into the approximation mechanism itself, rather than handled later as an afterthought.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Nima Shahbazi, Stavros Sintos, and Abolfazl Asudeh. 2026. <em>Fair-Count-Min: Frequency Estimation under Equal Group-wise Approximation Factor</em>. Proc. ACM Manag. Data 4, 3 (SIGMOD), Article 179 (June 2026), 42 pages. https://doi.org/10.1145/3802056
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://doi.org/10.1145/3802056" target="_blank" rel="noopener noreferrer">Paper</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="fair-epsilon-nets">
+              <div class="paper-tag">VLDB 2026</div>
+              <h3>On Fair Epsilon Nets and Geometric Hitting Sets</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar, Stavros Sintos, Abolfazl Asudeh · <em>Proceedings of the VLDB Endowment</em>, Vol. 19, pp. 1032-1045
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img width="50%" src="imgs/f-enet.jpg" alt="Illustration accompanying the fair epsilon nets and geometric hitting sets paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Many data systems rely on small representative subsets of data to support fast queries and scalable analytics. In computational geometry, these summaries are captured by fundamental tools such as <em>epsilon</em>-nets, <em>epsilon</em>-samples, and geometric hitting sets, which provide strong guarantees for range queries and approximation.
+                  </p>
+                  <p>
+                    However, these tools are inherently oblivious to fairness. In modern applications, datasets may contain multiple groups defined by sensitive application-specific attributes. When summaries are constructed without considering these groups, they can introduce systematic biases that propagate to downstream tasks, including query answering, visualization, and decision-making.
+                  </p>
+                  <p>
+                    In this work, led by Mohsen Dehghankar, we revisit these classical geometric constructs through the lens of fairness. The goal is to ensure that summaries are not only accurate but also representative across groups. We introduce fairness-aware variants of <em>epsilon</em>-nets and geometric hitting sets under two natural notions of group fairness:
+                  </p>
+                  <ul class="paper-points">
+                    <li>Demographic parity, which preserves the original proportions of groups in the data.</li>
+                    <li>Custom ratio fairness, which allows user-specified representation across groups.</li>
+                  </ul>
+                  <p>
+                    Formulating these fairness-aware variants, we design sampling-based algorithms for fair <em>epsilon</em>-nets that achieve near-optimal size guarantees, with only a logarithmic dependence on the number of groups. To further improve the quality of the summaries, we develop a discrepancy-based approach that produces smaller solutions with stronger theoretical guarantees.
+                  </p>
+                  <p>
+                    Building on these results, we show that the fair geometric hitting set problem can be reduced to fair <em>epsilon</em>-nets, leading to approximation bounds with only a mild overhead due to fairness constraints. Our experimental evaluation demonstrates that enforcing fairness comes at a surprisingly small cost, requiring only a modest increase in summary size while effectively eliminating representation bias.
+                  </p>
+                  <p>
+                    This work connects computational geometry with fairness-aware data management, showing that fairness can be incorporated directly into the core primitives underlying data summarization, rather than treated as a post-processing step. More broadly, it is part of our NSF-supported effort (Award No. 2348919) on fair data structures for approximate query processing, aiming to rethink the foundations of data systems so that efficiency, accuracy, and fairness are treated as first-class and inseparable design principles.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mohsen Dehghankar, Stavros Sintos, and Abolfazl Asudeh. <em>On Fair Epsilon Net and Geometric Hitting Set</em>. Proceedings of the VLDB Endowment, Vol. 19, pp. 1032-1045.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://www.vldb.org/pvldb/vol19/p1032-dehghankar.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <div class="pub-group-heading">Beyond Data Structures</div>
+
+            <article class="paper-card" id="fair-set-cover">
+              <div class="paper-tag">KDD 2025</div>
+              <h3>Fair Set Cover</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar, Rahul Raychaudhury, Stavros Sintos, and Abolfazl Asudeh · <em>Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.1 (KDD '25)</em>, August 3-7, 2025
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/fsc.jpg" alt="Illustration for the Fair Set Cover paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Set Cover is one of the most classical optimization problems in computer science, with deep theoretical roots and broad practical impact. It models a wide range of real-world tasks, including resource allocation, summarization, and selection problems, many of which directly affect how benefits, opportunities, or services are distributed.
+                  </p>
+                  <p>
+                    Despite this wide applicability, Set Cover has largely been studied without an explicit notion of fairness. As a result, solutions that are optimal in size may still produce systematically unbalanced outcomes when the chosen sets overrepresent some groups while underrepresenting others.
+                  </p>
+                  <p>
+                    In this work, led by Mohsen Dehghankar, we address this gap by introducing the Fair Set Cover problem: finding a minimum-size cover that also satisfies demographic parity in its selection of sets. This brings fairness directly into a core combinatorial optimization problem rather than treating it as a downstream correction.
+                  </p>
+                  <p>
+                    We develop multiple variants of Fair Set Cover, analyze their computational hardness, and design efficient approximation algorithms for solving them. Under reasonable assumptions, our methods guarantee zero unfairness while incurring only a small increase in approximation ratio.
+                  </p>
+                  <p>
+                    Our experimental results support the theory, showing that fairness comes at a negligible practical cost, with only minimal impact on solution size and runtime.
+                  </p>
+                  <p>
+                    Beyond its direct applications, this work also provides algorithmic foundations for related problems such as representative dataset formation, fair regret-ratio minimizing sets, and some variants of fair clustering.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mohsen Dehghankar, Rahul Raychaudhury, Stavros Sintos, and Abolfazl Asudeh. <em>Fair Set Cover</em>. In Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.1 (KDD '25), August 3-7, 2025.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://dl.acm.org/doi/10.1145/3690624.3709184" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/FairSetCoverSlides_KDD25.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="dynamic-necklace-splitting">
+              <div class="paper-tag">ICDT 2026</div>
+              <h3>Dynamic Necklace Splitting</h3>
+              <p class="paper-meta">
+                Rishi Advani, Abolfazl Asudeh, Mohsen Dehghankar, and Stavros Sintos · <em>29th International Conference on Database Theory (EDBT/ICDT Conference 2026)</em>, Leibniz International Proceedings in Informatics (LIPIcs), Volume 365, pp. 19:1-19:20
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/dns-icdt26.jpg" alt="Illustration for the Dynamic Necklace Splitting paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Necklace splitting is a classic problem in combinatorics and fair division: given a sequence of colored beads, how can we divide it among multiple agents so that each receives an equal share of every color, using as few cuts as possible?
+                  </p>
+                  <p>
+                    The story goes back to the early 1980s, when Bhatt and Leiserson introduced the problem in the context of parallel computation. Soon after, it became a beautiful example of the interplay between combinatorics and topology, with subsequent work connecting it to the Borsuk-Ulam theorem. Most recently, Noga Alon and Andrei Graur discovered an efficient approximation algorithm for finding a solution with few cuts [ICALP'21].
+                  </p>
+                  <p>
+                    But the classical formulation is static, the necklace does not change. Modern data systems, however, are inherently dynamic.
+                  </p>
+                  <p>
+                    In our recent work, led by Rishi Advani, we study dynamic necklace splitting: what happens when beads can be inserted, deleted, or relocated over time, while still maintaining fairness efficiently without recomputing from scratch?
+                  </p>
+                  <p>
+                    This extension is motivated by practical applications, including fair hash maps, load balancing across distributed systems, and maintaining representative partitions in data processing pipelines.
+                  </p>
+                  <p>Our key findings include:</p>
+                  <ul class="paper-points">
+                    <li>The formalization of necklace splitting in dynamic settings.</li>
+                    <li>Linear-time algorithms that maintain optimal fairness guarantees for the two-color case under updates.</li>
+                    <li>Efficient algorithms for multi-color settings and batch updates.</li>
+                    <li>A randomized approach that achieves approximate fairness with polylogarithmic update time when the number of agents is small.</li>
+                  </ul>
+                  <p>
+                    To the best of my knowledge, this paper was the only submission to ICDT 2026 that received three Accept votes, reflecting the strength of the work led by my student, Rishi Advani.
+                  </p>
+                  <p>
+                    Despite its elegant origins and growing relevance, necklace splitting remains relatively underexplored.
+                  </p>
+                  <p>
+                    A natural next direction is to further generalize these results beyond two colors.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Rishi Advani, Abolfazl Asudeh, Mohsen Dehghankar, and Stavros Sintos. <em>Dynamic Necklace Splitting</em>. In 29th International Conference on Database Theory (EDBT/ICDT Conference 2026). Leibniz International Proceedings in Informatics (LIPIcs), Volume 365, pp. 19:1-19:20.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICDT.2026.19" target="_blank" rel="noopener noreferrer">Paper</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="mining-the-minoria">
+              <div class="paper-tag">VLDB 2025</div>
+              <h3>Mining the Minoria</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar and Abolfazl Asudeh · <em>Proceedings of the VLDB Endowment</em>, 18(5): 1453-1465, 2025
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/minoritymining.jpg" alt="Illustration for the Mining the Minoria paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Suppose you are a responsible business or data owner and want to identify groups in your data that are systematically underrepresented and underperforming in downstream decisions. In practice, this is much harder than it sounds.
+                  </p>
+                  <p>
+                    First, datasets often do not explicitly include demographic information, so the sensitive groups of interest are not directly visible. Second, even if one suspects that inequities exist, there are many possible ways to partition the data, which creates an unknown-unknown problem: you may not even know which groups to look for.
+                  </p>
+                  <p>
+                    This paper, led by Mohsen Dehghankar, introduces the <em>minoria mining</em> problem to address exactly this challenge. Rather than assuming the minority groups are already known, the goal is to discover one-dimensional projections in the data cube that reveal potentially underrepresented and underperforming groups.
+                  </p>
+                  <p>
+                    At a high level, the approach draws on ideas from computational geometry, especially levels of arrangements, to identify highly skewed projections where the tail of the distribution is also underperforming. These projections act as signals that something important and potentially unfair may be happening in the data.
+                  </p>
+                  <p>
+                    The broader significance of the work is that it moves fairness analysis one step earlier in the pipeline. Instead of only correcting disparities after groups are predefined, it helps surface the groups that may deserve attention in the first place.
+                  </p>
+                  <p>
+                    This is only one possible approach to minoria mining, and an important goal of the work is to open the door for future research on alternative formulations, algorithms, and system support for discovering hidden minority groups.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mohsen Dehghankar and Abolfazl Asudeh. <em>Mining the Minoria: Unknown, Under-represented, and Under-performing Minority Groups</em>. Proceedings of the VLDB Endowment, 18(5): 1453-1465, 2025.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://www.vldb.org/pvldb/vol18/p1453-dehghankar.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/MinorityMining_VLDB25.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Team</p>
+          <h2>Project investigators</h2>
+        </div>
+        <div class="team-list">
+          <div class="team-item">
+            <h3><a href="https://www.cs.uic.edu/~asudeh/" target="_blank" rel="noopener noreferrer">A. Asudeh</a></h3>
+            <p>Principal Investigator</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://sites.google.com/view/stavros-sintos" target="_blank" rel="noopener noreferrer">S. Sintos</a></h3>
+            <p>Co-Principal Investigator</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://neemashahbazi.github.io/" target="_blank" rel="noopener noreferrer">Nima Shahbazi</a></h3>
+            <p>PhD Student Researcher</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://mohsendehghankar.github.io/" target="_blank" rel="noopener noreferrer">Mohsen Dehghankar</a></h3>
+            <p>PhD Student Researcher</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://rishi-advani.com/" target="_blank" rel="noopener noreferrer">Rishi Advani</a></h3>
+            <p>PhD Student Researcher</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="contact">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2>Project home</h2>
+        </div>
+        <div>
+          <p>
+            This page is intended to live under the InDeX Lab website and serve as a public-facing project hub for research outputs, publications, and updates.
+          </p>
+          <p>
+            Suggested deployment path: <code>https://www.cs.uic.edu/~indexlab/nsf-iis-2348919/</code>
+          </p>
+          <a class="button button-secondary" href="#top">Back to top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>NSF IIS-2348919 · Fairness-aware Data Structures for Approximate Query Processing</p>
+      <p>InDeX Lab · UIC Computer Science</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
