@@ -31,7 +31,7 @@
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#overview">Project Overview</a>
-            <a class="button button-secondary" href="#publications">Publications</a>
+            <a class="button button-secondary" href="#softwares">Project Outcomes</a>
           </div>
         </div>
 
@@ -39,6 +39,7 @@
           <p class="section-label">Table of Content</p>
           <nav class="toc-inner">
             <a href="#overview">Overview</a>
+            <a href="#softwares">Softwares</a>
             <a href="#publications">Publications</a>
             <a href="#team">Team</a>
           </nav>
@@ -71,10 +72,59 @@
       </div>
     </section>
 
-    <section class="section alt" id="publications">
+    <section class="section alt" id="softwares">
       <div class="container">
-        <p class="section-label">Publications</p>
-        <h2>Project outcomes</h2>
+        <p class="section-label">Project outcomes</p>
+        <h2>Softwares</h2>
+        <p class="section-intro">
+          Beyond papers, this project also produces software artifacts that make efficient low-bit inference practical in real systems.
+        </p>
+
+        <div class="card-grid">
+          <article class="paper-card" id="software-rsr-core">
+            <div class="paper-tag">Software</div>
+            <h3>RSR-core</h3>
+            <p class="paper-meta">
+              A high-performance engine for low-bit matrix-vector multiplication across CPU and CUDA backends.
+            </p>
+            <div class="paper-feature">
+              <figure class="paper-figure">
+                <a href="https://drive.google.com/file/d/1ub-MITJUepmfBLkyUZFb50hbJsuhgwCH/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                  <img src="https://raw.githubusercontent.com/UIC-InDeXLab/RSR-core/main/assets/rsr_baseline_compare.webp" alt="RSR-core demo visual comparing RSR against a Hugging Face baseline">
+                </a>
+              </figure>
+
+              <div class="paper-feature-copy">
+                <p>
+                  <em>RSR-core</em> is the systems implementation of the Redundant Segment Reduction framework for efficient low-bit inference. The repository provides the core kernels, model integrations, and benchmarking pipeline needed to accelerate binary and ternary matrix-vector multiplication, which is a dominant operation in low-bit neural inference and LLM decoding.
+                </p>
+                <p>
+                  The engine supports both CPU and CUDA backends and exposes optimized low-level kernels together with Python wrappers for 1-bit and 1.58-bit multiplication. It is designed to bridge the gap between the algorithmic gains of RSR and practical deployment in real inference pipelines.
+                </p>
+                <p>
+                  The software also includes Hugging Face integration for preprocessing quantized models into RSR format and running accelerated inference from those preprocessed artifacts. In addition, the repository provides benchmarking scripts for kernel-level and end-to-end evaluation, making it easy to reproduce performance results on local hardware.
+                </p>
+                <p>
+                  For interactive use, <em>RSR-core</em> includes a web dashboard built with FastAPI and Vite/React. The interface supports model browsing, preprocessing, side-by-side backend comparison, inference, and benchmark visualization, turning the project into a production-oriented workflow rather than a standalone prototype.
+                </p>
+                <p>
+                  According to the repository benchmarks, the engine achieves substantial speedups over Hugging Face PyTorch baselines, including up to 62× higher throughput on CPU and up to 1.9× faster token generation on CUDA for popular ternary LLMs. The demo visual above links to the project’s video demonstration from the repository README.
+                </p>
+                <p class="paper-links">
+                  <a href="https://github.com/UIC-InDeXLab/RSR-core" target="_blank" rel="noopener noreferrer">Repository</a>
+                  <a href="https://drive.google.com/file/d/1ub-MITJUepmfBLkyUZFb50hbJsuhgwCH/view?usp=sharing" target="_blank" rel="noopener noreferrer">Demo Video</a>
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <p class="section-label">Project outcomes</p>
+        <h2>Publications</h2>
         <p class="section-intro">
           This project currently includes three papers on algorithmic and systems foundations for efficient low-bit neural inference.
         </p>
@@ -162,7 +212,6 @@
                   </p>
                   <p class="paper-links">
                     <a href="https://arxiv.org/pdf/2603.27462" target="_blank" rel="noopener noreferrer">Paper</a>
-                    <a href="https://github.com/UIC-InDeXLab/RSR-core" target="_blank" rel="noopener noreferrer">RSR-core Repository</a>
                   </p>
                 </div>
               </div>
