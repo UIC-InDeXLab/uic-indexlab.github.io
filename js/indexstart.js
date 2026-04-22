@@ -15,7 +15,7 @@ st += '    </li> ';
 st += '  <ul class="navbar-nav mr-auto"> ';
 st+= '     <li class="nav-item dropdown">';
 st+= '        <a class="nav-link dropdown-toggle" id="fundedProjectsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-st+= '          Projects';
+st+= '          Active Projects';
 st+= '        </a>';
 st+= '        <div class="dropdown-menu" aria-labelledby="fundedProjectsDropdown">';
 st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'nsf-iis-2348919/index.html">NSF IIS-2348919 | Fairness-aware Data Structures</a>';
