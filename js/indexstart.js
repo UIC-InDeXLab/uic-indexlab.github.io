@@ -19,6 +19,7 @@ st+= '          Projects';
 st+= '        </a>';
 st+= '        <div class="dropdown-menu" aria-labelledby="fundedProjectsDropdown">';
 st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'nsf-iis-2348919/index.html">NSF IIS-2348919 | Fairness-aware Data Structures</a>';
+st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'efficient-on-device-llm-inference/index.html">Efficient and Private On-device LLM Inference</a>';
 st+= '        </div>';
 st += '    </li> ';
 //st += '    <li class="nav-item active"> ';

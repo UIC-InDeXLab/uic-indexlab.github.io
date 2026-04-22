@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Efficient and Private On-device LLM Inference</title>
+  <meta name="description" content="Project webpage for Efficient On-device LLM Inference." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://uic-indexlab.github.io/efficient-on-device-llm-inference/" />
+  <meta property="og:title" content="Efficient On-device LLM Inference" />
+  <meta property="og:description" content="Project webpage for Efficient On-device LLM Inference." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uic-indexlab.github.io/efficient-on-device-llm-inference/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-layout">
+        <div class="hero-main">
+          <div class="eyebrow">Project Website</div>
+          <h1>Efficient and Private On-device LLM Inference</h1>
+          <p class="subtitle">
+            Privacy-preserving and efficient inference on personal devices
+          </p>
+          <p class="hero-text">
+            This project advances systems and algorithmic foundations for running large language models efficiently on personal devices, reducing dependence on cloud-only deployment while improving privacy, accessibility, and cost efficiency.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#overview">Project Overview</a>
+            <a class="button button-secondary" href="#publications">Publications</a>
+          </div>
+        </div>
+
+        <aside class="hero-toc" aria-label="Table of contents">
+          <p class="section-label">Table of Content</p>
+          <nav class="toc-inner">
+            <a href="#overview">Overview</a>
+            <a href="#publications">Publications</a>
+            <a href="#team">Team</a>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="overview">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>Project overview</h2>
+        </div>
+        <div>
+          <p>
+            The efficiency of large language model inference is fundamentally shaped by low-level kernel execution, especially matrix-vector multiplication. Although low-bit quantization has reduced model size, practical inference pipelines still suffer from inefficient memory access and limited hardware utilization, making high-quality LLM inference expensive and difficult to deploy on commodity devices.
+          </p>
+          <p>
+            As a result, advanced LLM capabilities remain concentrated in cloud environments backed by powerful GPU servers. While cloud-based inference broadens access, it also introduces recurring monetary and energy costs, network-dependent latency, and privacy concerns associated with transmitting user data to external infrastructure.
+          </p>
+          <p>
+            This project aims to shift LLM inference toward a more user-centric and widely accessible model by enabling accurate, private, and efficient execution on personal computers. The broader goal is to support LLM operation without reliance on costly, energy-intensive accelerators or continuous internet connectivity, thereby expanding access to advanced language technologies.
+          </p>
+          <p>
+            The project will deliver a unified framework for privacy-preserving on-device LLM inference. By improving efficiency on personal devices, this work seeks to reduce dependence on centralized infrastructure, strengthen data protection, and support more trustworthy and practical deployment of modern AI systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="publications">
+      <div class="container">
+        <p class="section-label">Publications</p>
+        <h2>Project outcomes</h2>
+        <p class="section-intro">
+          This project currently includes three papers on algorithmic and systems foundations for efficient low-bit neural inference.
+        </p>
+
+        <div class="pub-layout">
+          <aside class="pub-toc">
+            <h3>Publications</h3>
+            <ol>
+              <li><a href="#rsr-icml-2025">RSR and RSR++</a></li>
+              <li><a href="#rsr-core">RSR-core</a></li>
+              <h4>Extended Scope</h4>
+              <li><a href="#sampling-edbt-2025">Sampling-Based MLP Training</a></li>
+            </ol>
+            <p class="toc-note">This list will be updated as additional project papers are added.</p>
+          </aside>
+
+          <div class="pub-content">
+            <article class="paper-card" id="rsr-icml-2025">
+              <div class="paper-tag">ICML 2025</div>
+              <h3>An Efficient Matrix Multiplication Algorithm for Accelerating Inference in Binary and Ternary Neural Networks</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar, Mahdi Erfanian, and Abolfazl Asudeh · <em>Proceedings of the 42nd International Conference on Machine Learning</em>, Vol. 267, pp. 12969-12986, 2025
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/dehghankar25a.jpg" alt="Illustration for the RSR and RSR++ matrix multiplication paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Matrix-vector multiplication is the central computational bottleneck in inference for binary and ternary neural networks, including low-bit large language models. Although quantization reduces model size, the resulting inference pipelines often remain limited by memory movement and inefficient execution, preventing the full benefit of low-bit representations from being realized in practice.
+                  </p>
+                  <p>
+                    This paper introduces <em>Redundant Segment Reduction (RSR)</em> and <em>RSR++</em>, the first algorithmic framework for accelerating low-bit matrix-vector multiplication without sacrificing exactness. Instead of trading accuracy for efficiency, the method preprocesses fixed weight matrices after training and builds compact index structures that reduce redundant computation during inference.
+                  </p>
+                  <p>
+                    The result is a logarithmic-factor improvement in both time and effective memory complexity. For an <em>n × n</em> weight matrix, the method achieves <em>O(n² / log n)</em> time complexity, improving on standard multiplication while preserving exact computation.
+                  </p>
+                  <p>
+                    Beyond the theoretical guarantees, the method delivers strong practical gains. Experiments show up to 30× faster matrix multiplication, up to 6× lower memory usage, up to 6× faster LLM inference on CPU without system-level optimization, and up to 2.5× faster LLM inference on GPU. The design also exposes substantial parallelism, since computations across column blocks are independent and can be executed concurrently.
+                  </p>
+                  <p>
+                    More broadly, this work shows that efficient on-device inference can be advanced not only through model compression, but also through better exact algorithms for the core operations that dominate runtime. In that sense, it provides an algorithmic foundation for making capable neural models more practical, affordable, and accessible on commodity hardware.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mohsen Dehghankar, Mahdi Erfanian, and Abolfazl Asudeh. 2025. <em>An Efficient Matrix Multiplication Algorithm for Accelerating Inference in Binary and Ternary Neural Networks</em>. In Proceedings of the 42nd International Conference on Machine Learning, Vol. 267, pp. 12969-12986.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://proceedings.mlr.press/v267/dehghankar25a.html" target="_blank" rel="noopener noreferrer">Paper Page</a>
+                    <a href="https://raw.githubusercontent.com/mlresearch/v267/main/assets/dehghankar25a/dehghankar25a.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="rsr-core">
+              <div class="paper-tag">CoRR 2026</div>
+              <h3>RSR-core: A High-Performance Engine for Low-Bit Matrix-Vector Multiplication</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar and Abolfazl Asudeh · <em>CoRR</em> abs/2603.27462, 2026
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/rsr-core.jpg" alt="Illustration for the RSR-core engine paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Matrix-vector multiplication is a core operation in neural networks, vector databases, and large language models, especially at inference time. As low-bit quantization becomes increasingly important for efficient deployment, binary and ternary weight matrices offer strong opportunities for acceleration, but practical gains depend on whether the underlying multiplication can be executed efficiently at the kernel level.
+                  </p>
+                  <p>
+                    This paper presents <em>RSR-core</em>, a high-performance engine that brings the algorithmic ideas of Redundant Segment Reduction into optimized low-level kernels for both CPU and CUDA environments. While prior implementations of RSR operated mainly at the application level, RSR-core closes the gap between theory and practice by enabling efficient integration into real inference systems.
+                  </p>
+                  <p>
+                    The engine supports matrix-vector multiplication for binary and ternary weight matrices with general vectors, and is designed for production use. It also includes Hugging Face integration for preprocessing low-bit models and running accelerated inference within existing workflows.
+                  </p>
+                  <p>
+                    Experimentally, RSR-core delivers substantial performance improvements over baseline Hugging Face PyTorch multiplication. The results show up to 62× speedup on CPU and up to 1.9× faster token generation on CUDA for popular ternary LLMs, demonstrating that low-bit acceleration can translate into meaningful end-to-end gains when paired with a systems-oriented implementation.
+                  </p>
+                  <p>
+                    More broadly, this work advances the project’s goal of making efficient on-device inference practical by turning a theoretically grounded algorithm into a deployable engine. In doing so, it strengthens the systems foundation for low-bit LLM inference on both commodity CPUs and modern GPUs.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mohsen Dehghankar and Abolfazl Asudeh. 2026. <em>RSR-core: A High-Performance Engine for Low-Bit Matrix-Vector Multiplication</em>. CoRR abs/2603.27462.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://arxiv.org/pdf/2603.27462" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://github.com/UIC-InDeXLab/RSR-core" target="_blank" rel="noopener noreferrer">RSR-core Repository</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="sampling-edbt-2025">
+              <div class="paper-tag">EDBT 2025</div>
+              <h3>Evaluating the Feasibility of Sampling-Based Techniques for Training Multilayer Perceptrons</h3>
+              <p class="paper-meta">
+                Sana Ebrahimi, Rishi Advani, and Abolfazl Asudeh · <em>EDBT 2025</em>
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/edbt25.jpg" alt="Illustration for the sampling-based MLP training paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Matrix multiplication is the main computational bottleneck in deep neural networks, creating a fundamental challenge for training and personalization on low-resource machines. As demand grows for running capable models, including LLM-based systems, on commodity CPUs, it becomes increasingly important to understand whether approximation techniques can meaningfully reduce this cost without undermining learning quality.
+                  </p>
+                  <p>
+                    This paper studies sampling-based approaches for accelerating multilayer perceptron training by approximating matrix multiplication. We identify two main families of methods in the literature: those that activate only a sampled subset of hidden-layer nodes at each iteration, and those that sample nodes from the previous layer to approximate the current layer’s activations. In both cases, the matrix products are computed using only the selected samples.
+                  </p>
+                  <p>
+                    Through theoretical analysis and comprehensive experiments, the paper shows that these techniques face important scalability limitations. The central issue is that even small approximation errors can propagate across layers, leading to an exponential growth in estimation error as network depth increases.
+                  </p>
+                  <p>
+                    While the work does not yet resolve this limitation, it provides an important negative result and clarifies the boundaries of currently available sampling-based methods. This makes the paper valuable not only as an evaluation of prior ideas, but also as a foundation for future research on more robust approaches to efficient neural network training.
+                  </p>
+                  <p>
+                    More broadly, the paper complements the project’s focus on efficient inference by examining a related algorithmic question at training time: when approximation can help, and when it breaks down. In doing so, it helps sharpen the research agenda for efficient neural computation on resource-constrained devices.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Sana Ebrahimi, Rishi Advani, and Abolfazl Asudeh. 2025. <em>Evaluating the Feasibility of Sampling-Based Techniques for Training Multilayer Perceptrons</em>. In EDBT 2025.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://doi.org/10.48786/edbt.2025.15" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/EDBT25-asudeh.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Team</p>
+          <h2>Project investigators</h2>
+        </div>
+        <div class="team-list">
+          <div class="team-item">
+            <h3><a href="https://www.cs.uic.edu/~asudeh/" target="_blank" rel="noopener noreferrer">A. Asudeh</a></h3>
+            <p>Faculty</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://mohsendehghankar.github.io/" target="_blank" rel="noopener noreferrer">Mohsen Dehghankar</a></h3>
+            <p>Lead PhD Student</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://merfanian.github.io/" target="_blank" rel="noopener noreferrer">Mahdi Erfanian</a></h3>
+            <p>PhD Student</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://www.sanaebrahimi.com/" target="_blank" rel="noopener noreferrer">Sana Ebrahimi</a></h3>
+            <p>PhD Student</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://rishi-advani.com/" target="_blank" rel="noopener noreferrer">Rishi Advani</a></h3>
+            <p>PhD Student</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Efficient and Private On-device LLM Inference</p>
+      <p>InDeX Lab · UIC Computer Science</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
