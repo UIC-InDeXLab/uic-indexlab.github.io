@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trustworthy LLMs and LLM Agents</title>
+  <meta
+    name="description"
+    content="Project webpage for Trustworthy LLMs and LLM Agents."
+  />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link
+    rel="canonical"
+    href="https://uic-indexlab.github.io/trustworthy-llms-and-llm-agents/"
+  />
+  <meta property="og:title" content="Trustworthy LLMs and LLM Agents" />
+  <meta
+    property="og:description"
+    content="Project webpage for Trustworthy LLMs and LLM Agents."
+  />
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:url"
+    content="https://uic-indexlab.github.io/trustworthy-llms-and-llm-agents/"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-layout">
+        <div class="hero-main">
+          <div class="eyebrow">Project Website</div>
+          <h1>Trustworthy LLMs and LLM Agents</h1>
+          <p class="subtitle">Reliable, fair, and accountable language systems at scale</p>
+          <p class="hero-text">
+            This project studies how to make large language models and multi-agent
+            LLM systems more transparent, robust, and dependable in real-world
+            deployments.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#overview">Project Overview</a>
+            <a class="button button-secondary" href="#publications">Project Outcomes</a>
+          </div>
+        </div>
+
+        <aside class="hero-toc" aria-label="Table of contents">
+          <p class="section-label">Table of Content</p>
+          <nav class="toc-inner">
+            <a href="#overview">Overview</a>
+            <a href="#publications">Project Outcomes</a>
+            <a href="#team">Team</a>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="overview">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>Why this project matters</h2>
+        </div>
+        <div>
+          <p>
+            Our research on Trustworthy Large Language Models and LLM Agents tackles
+            some of the pressing challenges in modern AI: ensuring that
+            increasingly powerful, collaborative language systems remain reliable,
+            fair, and accountable at scale.
+          </p>
+          <p>
+            While LLMs have transformed domains far beyond natural language
+            processing, their inherent randomness, susceptibility to bias, and
+            reliance on imperfect data introduce risks that cannot be ignored.
+            These challenges are amplified in emerging agentic settings, where
+            multiple LLMs interact, potentially propagating errors, reinforcing
+            biases, and obscuring accountability.
+          </p>
+          <p>
+            Our project develops principled, scalable, and deployment-ready
+            solutions grounded in algorithmic innovation, spanning sampling,
+            ranking and top-k optimization, relevance learning, reinforcement
+            learning, computational geometry, and query rewriting.
+          </p>
+          <p>
+            Through a combination of theoretical rigor, system design, and
+            extensive empirical validation, including user studies and open-source
+            prototypes, we aim to enable transparent, robust, and ethically
+            grounded LLM ecosystems that can be confidently deployed in real-world
+            applications.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="publications">
+      <div class="container">
+        <p class="section-label">Project Outcomes</p>
+        <h2>Publication</h2>
+
+        <div class="pub-layout">
+          <aside class="pub-toc">
+            <h3>Publications</h3>
+            <ol>
+              <li><a href="#paper-1">Responsibility Lens Survey</a></li>
+              <li><a href="#paper-2">Credibility Scoring</a></li>
+              <li><a href="#paper-3">Rank It, Then Ask It</a></li>
+              <li><a href="#paper-4">AXOLOTL</a></li>
+            </ol>
+            <p class="toc-note">This list will be updated during the course of project.</p>
+          </aside>
+
+          <div class="pub-content">
+            <article class="paper-card" id="paper-1">
+              <div class="paper-tag">Preprint 2025</div>
+              <h3>A Survey on Reliability, Transparency, Accountability, and Fairness in LLM-based Multi-Agent Systems through the Responsibility Lens</h3>
+              <p class="paper-meta">
+                Sana Ebrahimi and A. Asudeh · <em>Preprint</em>, 2025
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/survey.jpg" alt="Illustration for the Responsibility Lens survey on LLM-based multi-agent systems">
+                </figure>
+                <div class="paper-feature-copy">
+                  <p>
+                    As large language models evolve from standalone assistants
+                    into teams of interacting agents, the main challenge is no
+                    longer just capability. The harder question is how to design
+                    these systems so they remain dependable, understandable, and
+                    ethically grounded even when multiple agents critique,
+                    debate, route tasks, and aggregate partial results.
+                  </p>
+                  <p>
+                    This survey makes a foundational contribution by introducing
+                    what is, to our knowledge, the first unified taxonomy of
+                    responsibility in LLM-based multi-agent systems. Rather than
+                    treating concerns such as reliability, transparency,
+                    accountability, and fairness as separate conversations, the
+                    paper brings them together into one coherent framework for
+                    evaluating how multi-agent LLM systems are actually built.
+                  </p>
+                  <p>
+                    Under this responsibility lens, the survey organizes the
+                    literature into four pillars: reliability, covering
+                    accuracy, robustness, recoverability, and resilience;
+                    transparency, including explainability, interpretability,
+                    uncertainty reporting, limitations, and reproducibility;
+                    accountability, through traceability, attribution,
+                    auditability, and influence analysis; and fairness and
+                    ethics, including equity, diversity, and value alignment.
+                    Reviewing more than sixty recent systems, the paper shows
+                    where current approaches fit this framework, where they only
+                    partially address it, and where the field still lacks real
+                    foundations.
+                  </p>
+                  <p>
+                    Beyond synthesizing prior work, the paper offers a cleaner
+                    conceptual lens for researchers working on agentic LLMs,
+                    safety, evaluation, and coordination. It clarifies which
+                    design choices genuinely strengthen responsible behavior,
+                    surfaces the trade-offs that remain unresolved, and points
+                    to research directions that could materially move the field
+                    forward.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Sana Ebrahimi and A. Asudeh. 2025. <em>A Survey on Reliability, Transparency, Accountability, and Fairness in LLM-based Multi-Agent Systems through the Responsibility Lens</em>. Preprint.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://www.researchgate.net/profile/Abolfazl-Asudeh/publication/397650899_A_Survey_on_Reliability_Transparency_Accountability_and_Fairness_in_LLM-based_Multi-Agent_Systems_through_the_Responsibility_Lens/links/691933f9de8143098271909a/A-Survey-on-Reliability-Transparency-Accountability-and-Fairness-in-LLM-based-Multi-Agent-Systems-through-the-Responsibility-Lens.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="paper-2">
+              <div class="paper-tag">AACL 2025</div>
+              <h3>An Adversary-Resistant Multi-Agent LLM System via Credibility Scoring</h3>
+              <p class="paper-meta">
+                Sana Ebrahimi, Mohsen Dehghankar, and Abolfazl Asudeh · <em>Proceedings of IJCNLP-AACL</em>, 2025
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/agent-credit.jpg" alt="Illustration for the credibility scoring paper on adversary-resistant multi-agent LLM systems">
+                </figure>
+                <div class="paper-feature-copy">
+                  <p>
+                    Multi-agent LLM systems are attractive because they let
+                    multiple models collaborate, critique one another, and
+                    combine partial strengths into a stronger final answer. But
+                    that same collaboration creates a serious vulnerability:
+                    weak or adversarial agents can distort the group outcome,
+                    and the damage can become even more severe when harmful
+                    agents are numerous or strategically disruptive.
+                  </p>
+                  <p>
+                    This paper addresses that problem by introducing a general
+                    adversary-resistant framework built around credibility
+                    scoring. The collaborative query-answering process is modeled
+                    as an iterative game in which agents interact over time, and
+                    each agent accumulates a credibility score based on its past
+                    contributions. Those learned scores then guide aggregation,
+                    allowing the system to weigh trustworthy agents more heavily
+                    while reducing the influence of unreliable or malicious ones.
+                  </p>
+                  <p>
+                    The key contribution is not just a new scoring mechanism,
+                    but a practical way to make multi-agent cooperation more
+                    resilient. Instead of assuming that every participant should
+                    be treated equally, the system adapts to observed behavior
+                    and uses historical performance to stabilize future
+                    decisions. This creates a natural defense layer against
+                    adversarial manipulation without giving up the benefits of
+                    collaborative reasoning.
+                  </p>
+                  <p>
+                    Experiments across multiple tasks and settings show that the
+                    framework can substantially reduce adversarial influence and
+                    improve robustness, even in challenging adversary-majority
+                    scenarios. More broadly, the work offers an important step
+                    toward trustworthy multi-agent LLM systems by showing that
+                    resilience can be built directly into the aggregation layer
+                    of agent interaction.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Sana Ebrahimi, Mohsen Dehghankar, and Abolfazl Asudeh. 2025. <em>An Adversary-Resistant Multi-Agent LLM System via Credibility Scoring</em>. In Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://aclanthology.org/2025.ijcnlp-long.90.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/MA_LLM_AACL2025_Slides.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                    <a href="https://youtu.be/4qUodEH7TlY" target="_blank" rel="noopener noreferrer">Video</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="paper-3">
+              <div class="paper-tag">KDD 2025</div>
+              <h3>Rank It, Then Ask It: Input Reranking for Maximizing the Performance of LLMs on Symmetric Tasks</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar and Abolfazl Asudeh · <em>Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, 2025
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/rankit.jpg" alt="Illustration for the input reranking paper on symmetric LLM tasks">
+                </figure>
+                <div class="paper-feature-copy">
+                  <p>
+                    Large language models often receive information as ordered
+                    sequences, even when the underlying task is fundamentally
+                    unordered. This mismatch becomes especially important in
+                    symmetric tasks, where the query is asked over a bag of
+                    elements and the answer should not depend on any particular
+                    ordering. In practice, however, LLMs do depend on that
+                    ordering, and when the input is large, they may overlook
+                    elements that are crucial for producing an accurate answer.
+                  </p>
+                  <p>
+                    This paper turns that limitation into an opportunity. Rather
+                    than treating the input order as arbitrary, it asks how the
+                    same set of elements can be rearranged to maximize LLM
+                    performance without changing the semantics of the task. The
+                    resulting problem, LLM input reranking, is built on two key
+                    ideas: estimating how relevant each element is for answering
+                    the query, and estimating how important each input position
+                    is in shaping the model’s attention.
+                  </p>
+                  <p>
+                    To solve this efficiently, the paper develops algorithms
+                    that use a helper LLM to estimate both element relevance and
+                    positional importance, avoiding strong assumptions about the
+                    query itself. This makes the method broadly applicable to
+                    tasks such as aggregate reasoning over tables and other
+                    settings where the data is naturally unordered but the model
+                    still consumes it sequentially.
+                  </p>
+                  <p>
+                    Experiments on synthetic and real datasets show that the
+                    reranking approach can dramatically improve performance,
+                    bringing model accuracy to within up to 99% of the optimum
+                    upper bound. More broadly, the work shows that prompt
+                    quality is not just about wording. For many LLM tasks, the
+                    structure and order of the input itself can be a powerful
+                    optimization lever.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mohsen Dehghankar and Abolfazl Asudeh. 2025. <em>Rank It, Then Ask It: Input Reranking for Maximizing the Performance of LLMs on Symmetric Tasks</em>. In Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V. 2.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://dl.acm.org/doi/abs/10.1145/3711896.3737099" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/InputRerankingSlides_KDD25.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="paper-4">
+              <div class="paper-tag">ICKG 2024</div>
+              <h3>AXOLOTL: Fairness through Assisted Self-Debiasing of Large Language Model Outputs</h3>
+              <p class="paper-meta">
+                Sana Ebrahimi, Kaiwen Chen, Abolfazl Asudeh, Gautam Das, and Nick Koudas · <em>2024 IEEE International Conference on Knowledge Graph (ICKG)</em>, 2024
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/axolotl.jpg" alt="Illustration for the AXOLOTL paper on assisted self-debiasing of LLM outputs">
+                </figure>
+                <div class="paper-feature-copy">
+                  <p>
+                    Large language models have become remarkably capable across
+                    a wide range of tasks, but they also inherit biases from the
+                    data on which they are trained. In practice, this means that
+                    even strong models can produce outputs that are unfair,
+                    stereotyped, or systematically harmful, especially in
+                    sensitive applications. Many debiasing strategies exist, but
+                    they often rely on retraining, internal model access, or
+                    computationally expensive interventions that are difficult to
+                    apply in real deployment settings.
+                  </p>
+                  <p>
+                    AXOLOTL approaches this problem from a different angle. Inspired by
+                    query rewriting, the paper introduces prompt rewriting as a
+                    lightweight and practical mechanism for reducing unfairness
+                    in LLM outputs after generation time. Rather than modifying
+                    model parameters, the framework works through public APIs and
+                    treats the LLM as a black box, making it broadly applicable
+                    across tasks and model families.
+                  </p>
+                  <p>
+                    The framework follows a three-step assisted self-debiasing
+                    process: it first identifies potential bias in the model’s
+                    output, then proposes ways to resolve that bias, and finally
+                    guides the model toward producing a fairer revised response.
+                    This is a compelling design because it preserves model
+                    utility while avoiding the cost and complexity of heavyweight
+                    fine-tuning pipelines.
+                  </p>
+                  <p>
+                    More broadly, AXOLOTL shows that fairness interventions do
+                    not always need to be invasive to be effective. By combining
+                    bias detection, resolution, and guided rewriting in a
+                    post-processing wrapper, the system offers a practical path
+                    toward fairer LLM behavior with low computational overhead
+                    and strong deployment potential.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Sana Ebrahimi, Kaiwen Chen, Abolfazl Asudeh, Gautam Das, and Nick Koudas. 2024. <em>AXOLOTL: Fairness through Assisted Prompt Rewriting of Large Language Model Outputs</em>. In 2024 IEEE International Conference on Knowledge Graph (ICKG), pages 75-84.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10884307" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/AXOLOTL_ICKG.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Team</p>
+        </div>
+        <div class="team-list">
+          <div class="team-item">
+            <h3><a href="https://www.cs.uic.edu/~asudeh/" target="_blank" rel="noopener noreferrer">A. Asudeh</a></h3>
+            <p>Faculty</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://www.sanaebrahimi.com/" target="_blank" rel="noopener noreferrer">Sana Ebrahimi</a></h3>
+            <p>Lead PhD Student</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://neemashahbazi.github.io/" target="_blank" rel="noopener noreferrer">Nima Shahbazi</a></h3>
+            <p>PhD Student</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://mohsendehghankar.github.io/" target="_blank" rel="noopener noreferrer">Mohsen Dehghankar</a></h3>
+            <p>PhD Student</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://www.utsc.utoronto.ca/cms/nick-koudas" target="_blank" rel="noopener noreferrer">Nick Koudas</a></h3>
+            <p>Collaborator · Professor, University of Toronto</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://ranger.uta.edu/~gdas/index.html" target="_blank" rel="noopener noreferrer">Gautam Das</a></h3>
+            <p>Collaborator · Distinguished University Chair Professor, University of Texas at Arlington</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Trustworthy LLMs and LLM Agents</p>
+      <p>InDeX Lab · UIC Computer Science</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
