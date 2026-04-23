@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theoretically-sound and Practically-efficient Vector Data Retrieval</title>
+  <meta name="description" content="Project webpage for Theoretically-sound and Practically-efficient Vector Data Retrieval (VectorDB)." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://uic-indexlab.github.io/vectordb/" />
+  <meta property="og:title" content="Theoretically-sound and Practically-efficient Vector Data Retrieval" />
+  <meta property="og:description" content="Project webpage for Theoretically-sound and Practically-efficient Vector Data Retrieval (VectorDB)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uic-indexlab.github.io/vectordb/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-layout">
+        <div class="hero-main">
+          <div class="eyebrow">Project Website</div>
+          <h4>Theoretically-sound and Practically-efficient</h4>
+          <h1>Vector Data Retrieval</h1>
+          <p class="subtitle">
+            bridging rigorous retrieval foundations with deployable vector database systems
+          </p>
+          <p class="hero-text">
+            This project studies the algorithmic and systems foundations of vector retrieval, with emphasis on ranked retrieval, similarity search, and random-access operations that make modern vector databases and RAG pipelines both efficient and reliable.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#overview">Project Overview</a>
+            <a class="button button-secondary" href="#publications">Publications</a>
+          </div>
+        </div>
+
+        <aside class="hero-toc" aria-label="Table of contents">
+          <p class="section-label">Table of Content</p>
+          <nav class="toc-inner">
+            <a href="#overview">Overview</a>
+            <a href="#directions">Research Directions</a>
+            <a href="#publications">Publications</a>
+            <a href="#team">Team</a>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="overview">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>Why this project matters</h2>
+        </div>
+        <div>
+          <p>
+            The rapid rise of large language models (LLMs) and Retrieval-Augmented Generation (RAG) for information retrieval, question answering, and knowledge-intensive reasoning, together with the growing prevalence of large-scale unstructured data, has driven the emergence of vector database management systems. These systems extend traditional database architectures by efficiently storing, indexing, and querying vector representations such as embeddings, which now sit at the core of many machine learning and AI applications.
+          </p>
+          <p>
+            At the heart of this landscape are ranked retrieval and similarity search. These problems underpin vector database systems, nearest-neighbor search, and retrieval pipelines in LLM-based applications, where both efficiency and reliability are essential. Classical approximate nearest neighbor algorithms provide strong theoretical guarantees but often fail to scale in practice, while heuristic methods perform remarkably well empirically yet offer little in the way of provable guarantees.
+          </p>
+          <p>
+            This project focuses on closing that gap. In particular, it studies how to design vector retrieval methods that preserve the rigor of theory while matching the performance expectations of real-world systems. A central challenge is that many ANN and ranked retrieval algorithms are optimized for top-<em>k</em> search when <em>k</em> is small, but modern interactive data systems also require random access to dynamically ordered items over high-dimensional feature spaces.
+          </p>
+          <p>
+            By connecting data management theory with practical systems building, VectorDB aims to support a new generation of vector retrieval engines that are scalable, analyzable, and dependable enough for production use in search, recommendation, multimodal analytics, and LLM-powered reasoning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="directions">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Research Directions</p>
+          <h2>What we do</h2>
+        </div>
+        <div>
+          <div class="card">
+            <p class="section-intro">
+              Our research examines the foundations and systems questions needed to make vector retrieval both theoretically principled and practically effective. The project asks:
+            </p>
+            <ul class="paper-points">
+              <li>How can we bridge the longstanding gap between theoretically grounded ANN algorithms and the heuristic methods that dominate practical vector search engines?</li>
+              <li>How can ranked retrieval and similarity search be made reliable enough for deployment in vector databases, RAG systems, and other knowledge-intensive AI pipelines?</li>
+              <li>How can we develop efficient algorithms for random-access ranked retrieval, where ordering is defined dynamically over high-dimensional vector spaces rather than by fixed relational attributes?</li>
+              <li>How should indexing, pruning, and access methods be redesigned so that random access and exploration remain efficient even when top-<em>k</em> is not the only retrieval mode that matters?</li>
+              <li>What theoretical guarantees are most useful in practice for vector data systems: approximation quality, stability, latency bounds, memory efficiency, or robustness under distribution shift?</li>
+              <li>How can vector retrieval algorithms better support interactive exploration, hybrid search, and adaptive ranking in systems that combine structured data, embeddings, and learned query operators?</li>
+              <li>How can these ideas inform end-to-end vector database architectures that are not only fast on benchmarks, but also dependable, maintainable, and extensible in real deployments?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <p class="section-label">Project outcomes</p>
+        <h2>Publications</h2>
+        <p class="section-intro">
+          This section will track publications on vector databases, ranked retrieval, similarity search, and random-access algorithms for high-dimensional data systems.
+        </p>
+
+        <div class="pub-layout">
+          <aside class="pub-toc">
+            <h3>Publications</h3>
+            <ol>
+              <li><a href="#henn-corr-2025">HENN</a></li>
+              <li><a href="#random-access-2026">Random Access</a></li>
+            </ol>
+            <p class="toc-note">This list will be updated as project papers are added.</p>
+          </aside>
+
+          <div class="pub-content">
+            <article class="paper-card" id="henn-corr-2025">
+              <div class="paper-tag">CoRR 2025</div>
+              <h3>HENN: A Hierarchical Epsilon Net Navigation Graph for Approximate Nearest Neighbor Search</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar and Abolfazl Asudeh · <em>CoRR</em> abs/2505.17368, 2025
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/HENN.jpg" alt="Illustration for the HENN paper on hierarchical graph indexing for approximate nearest neighbor search">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Hierarchical graph-based algorithms such as HNSW have become the dominant practical approach for Approximate Nearest Neighbor search, yet their success has long outpaced their theory. They achieve strong empirical performance, but their reliance on randomized heuristic graph construction leaves open critical questions about query-time guarantees and worst-case recall. At the same time, many theoretically grounded ANN structures remain difficult to implement and rarely match the scale or simplicity demanded by real systems.
+                  </p>
+                  <p>
+                    This paper introduces <em>HENN</em>, the Hierarchical Epsilon Net Navigation Graph, as a graph-based indexing structure that combines rigorous guarantees with practical efficiency. Built on the theory of <em>&epsilon;</em>-nets, HENN guarantees polylogarithmic worst-case query time while preserving high recall and keeping implementation overhead low enough to remain realistic for deployment.
+                  </p>
+                  <p>
+                    Beyond proposing a new structure, the paper also gives theoretical insight into the empirical success of HNSW by establishing a probabilistic polylogarithmic query-time bound for it. That comparison is important, because prior hierarchical methods may degrade to linear query time under adversarial inputs, whereas HENN maintains provable performance independent of the underlying data distribution.
+                  </p>
+                  <p>
+                    Extensive experiments show that HENN achieves faster query time while maintaining competitive recall across a range of data distributions, including adversarial settings. The overall result is a robust and scalable ANN solution that closes part of the longstanding gap between principled retrieval theory and high-performance vector search in practice.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Dehghankar, Mohsen, and Abolfazl Asudeh. 2025. <em>HENN: A Hierarchical Epsilon Net Navigation Graph for Approximate Nearest Neighbor Search</em>. Preprint, CoRR abs/2505.17368.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://arxiv.org/pdf/2505.17368" target="_blank" rel="noopener noreferrer">Paper</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="random-access-2026">
+              <div class="paper-tag">Under Review 2026</div>
+              <h3>Random-Access Ranked Retrieval and Similarity Search</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar, Abolfazl Asudeh, Raghav Mittal, Suraj Shetiya, and Gautam Das · Under Review, 2026
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/randomaccess.jpg" alt="Illustration for the Random Access paper on ranked retrieval and similarity search">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Random access is a fundamental operation behind many efficient search and exploration algorithms, but modern interactive data systems increasingly rely on ranked retrieval and similarity search where orderings are defined dynamically over high-dimensional feature spaces. That shift creates a new challenge: how can systems directly access the tuple at a desired rank when the ranking itself is induced by geometric or embedding-based structure rather than static stored attributes?
+                  </p>
+                  <p>
+                    This paper formalizes the <em>Random-Access Ranked Retrieval</em> (RAR) problem and extends the framework to similarity search. On the theoretical side, it develops an efficient algorithm based on geometric arrangements that achieves logarithmic query time. However, because that approach incurs exponential space complexity in high dimensions, the work also introduces a second family of algorithms based on <em>&epsilon;</em>-sampling that use only linear space.
+                  </p>
+                  <p>
+                    Since exactly locating the tuple at a specific rank is closely tied to the range counting problem and therefore inherently difficult, the paper further defines a relaxed variant called <em>&kappa;</em>-Random-Access Ranked Retrieval. Instead of returning one exact tuple, this formulation returns a small subset of size <em>&kappa;</em> guaranteed to contain the target item. To support this efficiently, the work introduces an intermediate problem, <em>Stripe Range Retrieval</em> (SRR), together with a hierarchical sampling data structure specialized for narrow stripe queries.
+                  </p>
+                  <p>
+                    The resulting methods achieve practical scalability across both dataset size and dimensionality. The paper proves near-optimal bounds for the proposed algorithms and validates them experimentally on real and synthetic datasets, showing scalability to millions of tuples and hundreds of dimensions while supporting efficient ranked retrieval and similarity search.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mohsen Dehghankar, Abolfazl Asudeh, Raghav Mittal, Suraj Shetiya, and Gautam Das. 2026. <em>Random-Access Ranked Retrieval and Similarity Search</em>. Under Review.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Team</p>
+          <h2>Project investigators</h2>
+        </div>
+        <div class="team-list">
+          <div class="team-item">
+            <h3><a href="https://www.cs.uic.edu/~asudeh/" target="_blank" rel="noopener noreferrer">A. Asudeh</a></h3>
+            <p>Faculty</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://mohsendehghankar.github.io/" target="_blank" rel="noopener noreferrer">Mohsen Dehghankar</a></h3>
+            <p>Lead PhD Student</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Theoretically-sound and Practically-efficient Vector Data Retrieval</p>
+      <p>InDeX Lab · UIC Computer Science</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

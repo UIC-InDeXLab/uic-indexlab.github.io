@@ -22,6 +22,7 @@ st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'nsf-iis-
 st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'efficient-llm-inference/index.html">Efficient LLM Inference</a>';
 st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'trustworthy-llms-and-llm-agents/index.html">Trustworthy LLMs and LLM Agents</a>';
 st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'genai4dm/index.html">Generative AI for Multimodal Data Management</a>';
+st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'vectordb/index.html">VectorDB | Theoretically-sound and Practically-efficient Vector Data Retrieval</a>';
 st+= '        </div>';
 st += '    </li> ';
 //st += '    <li class="nav-item active"> ';
