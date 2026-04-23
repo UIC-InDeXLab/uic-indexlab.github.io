@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generative AI for Data Management</title>
+  <meta name="description" content="Project webpage for Generative AI for Data Management." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://uic-indexlab.github.io/generative-ai-for-data-management/" />
+  <meta property="og:title" content="Generative AI for Data Management" />
+  <meta property="og:description" content="Project webpage for Generative AI for Data Management." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uic-indexlab.github.io/generative-ai-for-data-management/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-layout">
+        <div class="hero-main">
+          <div class="eyebrow">Project Website</div>
+          <h1>Generative AI for Data Management</h1>
+          <p class="subtitle">
+            Generative models as first-class operators in future data systems
+          </p>
+          <p class="hero-text">
+            This project studies how generative AI can move data management from rigid pipelines toward adaptive, model-centric systems that curate, retrieve, and improve data more responsibly and effectively.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#overview">Project Overview</a>
+            <a class="button button-secondary" href="#softwares">Project Outcomes</a>
+          </div>
+        </div>
+
+        <aside class="hero-toc" aria-label="Table of contents">
+          <p class="section-label">Table of Content</p>
+          <nav class="toc-inner">
+            <a href="#overview">Overview</a>
+            <a href="#directions">Research Directions</a>
+            <a href="#softwares">Softwares</a>
+            <a href="#publications">Publications</a>
+            <a href="#team">Team</a>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="overview">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>Why this project matters</h2>
+        </div>
+        <div>
+          <p>
+            Recent advances in Generative AI are fundamentally reshaping the landscape of data-driven systems. Beyond their success in language and vision tasks, generative models now offer a powerful abstraction for understanding, synthesizing, and reasoning over data.
+          </p>
+          <p>
+            This project investigates how Generative AI can serve as a core enabler for the next generation of data management systems: systems that are more capable, more responsible, more efficient, and more adaptive than traditional pipeline-driven approaches.
+          </p>
+          <p>
+            At a high level, the project explores a shift toward model-centric data management, where generative models actively participate in data processing, augmentation, and retrieval. By leveraging GenAI's ability to generate high-quality synthetic data and interpret complex multimodal inputs, the project seeks new solutions to long-standing challenges in the field.
+          </p>
+          <p>
+            Across its directions, the work bridges algorithmic foundations, including robustness, approximation, and ranking, with scalable implementations suitable for real-world data platforms. The long-term goal is a unified framework where generative models help curate, query, and improve data rather than merely consume it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="directions">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Research Directions</p>
+          <h2>What we do</h2>
+        </div>
+        <div>
+          <div class="card">
+            <p class="section-intro">
+              Our research asks a broader set of questions about how generative AI can help address data management challenges. These questions include:
+            </p>
+            <ul class="paper-points">
+              <li>How can generative models become reliable first-class operators in data management systems rather than isolated add-ons for downstream analytics?</li>
+              <li>How can Generative AI improve fairness, robustness, and coverage in datasets through principled data augmentation, especially for under-served or under-represented groups?</li>
+              <li>How can synthetic data generation be made both useful and responsible, with stronger guarantees about quality, diversity, and downstream impact on learning systems?</li>
+              <li>How can multimodal databases support complex natural-language queries that require semantic understanding, cross-modal alignment, and compositional reasoning over text, images, and other modalities?</li>
+              <li>How should generative reasoning interact with retrieval, ranking, and approximation techniques so that query answering is both expressive and scalable in real-world systems?</li>
+              <li>How can model-centric data systems remain efficient and adaptive as data distributions, user needs, and modalities evolve over time?</li>
+              <li>How can theoretical foundations such as robustness, approximation, and ranking inform scalable implementations of generative data systems in practice?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="softwares">
+      <div class="container">
+        <p class="section-label">Project outcomes</p>
+        <h2>Softwares</h2>
+        <p class="section-intro">
+          Beyond papers, this project will produce software artifacts for model-centric data management, including tools for responsible data augmentation, multimodal retrieval, and generative querying.
+        </p>
+
+        <div class="card-grid">
+          <article class="paper-card">
+            <div class="paper-tag">Software</div>
+            <h3>Needle</h3>
+            <p class="paper-meta">
+              A deployment-ready open-source image retrieval database for complex natural-language queries.
+            </p>
+            <div class="paper-feature">
+              <figure class="paper-figure">
+                <a href="https://github.com/UIC-InDeXLab/Needle/blob/main/media/needle_demo.gif" target="_blank" rel="noopener noreferrer">
+                  <img src="https://raw.githubusercontent.com/UIC-InDeXLab/Needle/main/media/needle_demo.gif" alt="Needle demo showing natural-language image retrieval">
+                </a>
+              </figure>
+
+              <div class="paper-feature-copy">
+                <p>
+                  <em>Needle🪡🔍</em> is a deployment-ready open-source image retrieval database with high accuracy that can handle complex queries in natural language. It is designed to be fast, efficient, and precise, outperforming state-of-the-art methods while remaining practical for real use.
+                </p>
+                <p>
+                  Born from high-end research, Needle is built to be accessible beyond a narrow research audience while still delivering strong performance. It enables researchers, developers, and enthusiasts to explore image datasets through richer query interfaces than standard keyword or basic embedding search.
+                </p>
+                <p>
+                  Within this project, Needle represents the systems side of generative-AI-powered data management: a concrete platform for advanced retrieval over visual data, where natural-language interaction, semantic understanding, and practical deployment all matter.
+                </p>
+                <p class="paper-links">
+                  <a href="https://uic-indexlab.github.io/Needle/" target="_blank" rel="noopener noreferrer">Project Webpage</a>
+                  <a href="https://github.com/UIC-InDeXLab/Needle" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+                  <a href="https://uic-indexlab.github.io/Needle/demo/search" target="_blank" rel="noopener noreferrer">Interactive Demo</a>
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <p class="section-label">Project outcomes</p>
+        <h2>Publications</h2>
+        <p class="section-intro">
+          This section will track publications on responsible generative data management, multimodal retrieval, and model-centric data systems.
+        </p>
+
+        <div class="pub-layout">
+          <aside class="pub-toc">
+            <h3>Publications</h3>
+            <ol>
+              <li><a href="#needle-arxiv-2024">NEEDLE</a></li>
+              <li><a href="#chameleon-vldb-2024">Chameleon</a></li>
+              <li><a href="#needledb-corr-2026">NeedleDB</a></li>
+            </ol>
+            <p class="toc-note">This list will be updated as project papers are added.</p>
+          </aside>
+
+          <div class="pub-content">
+            <article class="paper-card" id="needle-arxiv-2024">
+              <div class="paper-tag">arXiv 2024</div>
+              <h3>Needle: A Generative-AI Powered Monte Carlo Method for Answering Complex Natural Language Queries on Multi-modal Data</h3>
+              <p class="paper-meta">
+                Mahdi Erfanian, Mohsen Dehghankar, and Abolfazl Asudeh · <em>arXiv:2412.00639</em>, 2024
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/needle.jpg" alt="Illustration for the NEEDLE paper on answering complex natural-language queries over multimodal data">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Multi-modal datasets such as image collections are full of rich information, but that richness is often locked away. The raw items may be visually expressive, yet the textual descriptions that would let a system understand them are usually sparse, incomplete, or entirely missing. As soon as a user asks a complex natural-language query, something that depends on nuanced semantics rather than a short keyword label, standard retrieval pipelines begin to fail.
+                  </p>
+                  <p>
+                    The core difficulty is deeper than missing metadata. In traditional nearest-neighbor search, both the data and the query live in the same metric space, so comparison is direct. Here, however, the query is expressed in language while the tuples are multimodal objects, meaning the two sides start in fundamentally different spaces. Prior work tries to bridge that gap through jointly trained text-image representations, but those approaches often struggle once the query becomes compositionally rich or semantically demanding.
+                  </p>
+                  <p>
+                    This paper takes a different path. Instead of forcing the query into a single brittle vector representation, it introduces a generative-AI-powered Monte Carlo method that uses foundation models to create synthetic samples capturing the intent and complexity of the natural-language request. Those generated samples are then represented in the same metric space as the multi-modal data, making retrieval possible in a way that better respects the structure of the original query.
+                  </p>
+                  <p>
+                    Building on that idea, the paper presents <em>NEEDLE</em>, a database system for image retrieval that is driven by synthetic data generation rather than contrastive learning or metadata search. The result is not just a research idea, but an open-source, deployment-ready system designed for practical adoption by researchers and developers. Across benchmark datasets, NEEDLE significantly outperforms state-of-the-art text-to-image retrieval methods, while remaining flexible enough to benefit from future progress in foundation models and embedding technologies.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mahdi Erfanian, Mohsen Dehghankar, and Abolfazl Asudeh. 2024. <em>Needle: A Generative-AI Powered Monte Carlo Method for Answering Complex Natural Language Queries on Multi-modal Data</em>. arXiv:2412.00639.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://arxiv.org/pdf/2412.00639" target="_blank" rel="noopener noreferrer">Paper</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="chameleon-vldb-2024">
+              <div class="paper-tag">VLDB 2024</div>
+              <h3>Chameleon: Foundation Models for Fairness-aware Multi-modal Data Augmentation to Enhance Coverage of Minorities</h3>
+              <p class="paper-meta">
+                Mahdi Erfanian, H. Jagadish, and Abolfazl Asudeh · <em>Proceedings of the VLDB Endowment</em>, 17(11): 3470-3483, 2024
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/chameleon.jpg" alt="Illustration for the Chameleon paper on fairness-aware multimodal data augmentation">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Machine learning systems are increasingly scrutinized for being unfair to minorities and other marginalized groups, and one recurring reason is simple but serious: those groups are often under-represented in the training data. In the ideal case, the dataset could be repaired by collecting more real examples from external sources. In practice, that option is often unavailable, too expensive, or too slow.
+                  </p>
+                  <p>
+                    That gap creates a natural question for modern generative AI: if real data cannot be collected, can high-quality synthetic data be used to repair the dataset instead? This paper explores that question through <em>Chameleon</em>, a system that uses foundation models to generate synthetic multimodal tuples for fairness-aware data augmentation.
+                  </p>
+                  <p>
+                    The appeal of this idea is immediate, because the dataset itself is rarely the final objective. It is usually an input to something else, such as training an ML model. If a small amount of carefully generated synthetic data can reduce under-representation and improve downstream fairness, then augmentation may be a practical substitute when real-world repair is impossible.
+                  </p>
+                  <p>
+                    But making that work requires more than just generating extra examples. The system must identify the minimal set of synthetic tuples needed to address representation bias, preserve semantic integrity so the generated tuples fit the context and distribution of the original dataset, maintain visual and semantic quality that looks realistic to human evaluators, and remain cost-effective despite the monetary cost of querying foundation models. To address these challenges, the work introduces several technical ideas, including rejection tests and multi-armed bandit methods.
+                  </p>
+                  <p>
+                    Comprehensive experiments show that augmentation with synthetic tuples generated by advanced foundation models can come remarkably close to the effect of adding real tuples when the goal is to reduce downstream unfairness. In that sense, <em>Chameleon</em> demonstrates that generative AI can play a concrete role in responsible data management, not merely by analyzing biased datasets, but by actively helping repair them.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mahdi Erfanian, H. Jagadish, and Abolfazl Asudeh. 2024. <em>Chameleon: Foundation Models for Fairness-aware Multi-modal Data Augmentation to Enhance Coverage of Minorities</em>. In Proceedings of the VLDB Endowment, 17(11): 3470-3483.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://www.vldb.org/pvldb/vol17/p3470-erfanian.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/Chameleon-asudeh.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                    <a href="https://www.youtube.com/watch?v=h4jnPs3ylOQ" target="_blank" rel="noopener noreferrer">Video</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="needledb-corr-2026">
+              <div class="paper-tag">CoRR 2026 (Demo)</div>
+              <h3>NeedleDB: A Generative-AI Based System for Accurate and Efficient Image Retrieval using Complex Natural Language Queries</h3>
+              <p class="paper-meta">
+                Mahdi Erfanian and Abolfazl Asudeh · <em>CoRR</em> abs/2603.27464, 2026
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/needledb.jpg" alt="Illustration for the NeedleDB demo paper on accurate and efficient image retrieval">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Retrieving images with natural language sounds straightforward until the query becomes genuinely descriptive. Existing systems often depend on contrastive-learning embeddings such as CLIP, which work reasonably well for short or simple prompts but begin to degrade when users ask for something nuanced, compositional, or visually specific. That gap is exactly where a practical retrieval system begins to matter.
+                  </p>
+                  <p>
+                    <em>NeedleDB</em> is presented as a deployment-ready database system built to answer those harder queries over image collections. Its central idea is to use generative AI not just as an auxiliary tool, but as part of the retrieval mechanism itself. Rather than forcing a difficult text query into a single embedding and hoping it aligns well with the image space, the system synthesizes guide images that visually represent the query, effectively turning a fragile text-to-image search problem into a more tractable image-to-image retrieval task.
+                  </p>
+                  <p>
+                    The system then strengthens retrieval quality by aggregating nearest-neighbor results across multiple vision embedders through a weighted rank-fusion strategy grounded in a Monte Carlo estimator with provable error bounds. That algorithmic core is paired with a complete systems stack: a command-line interface through <em>needlectl</em>, a browser-based web interface, and a modular microservice architecture backed by PostgreSQL and Milvus.
+                  </p>
+                  <p>
+                    The result is a system that is not only accurate, but operational. On challenging benchmarks, NeedleDB improves Mean Average Precision by up to 93% over the strongest baseline while maintaining sub-second query latency. In demonstration settings, users can interact with the system through realistic scenarios that highlight retrieval quality, ingestion workflows, and the configurability of the end-to-end pipeline.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mahdi Erfanian and Abolfazl Asudeh. 2026. <em>NeedleDB: A Generative-AI Based System for Accurate and Efficient Image Retrieval using Complex Natural Language Queries</em>. CoRR abs/2603.27464.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://arxiv.org/pdf/2603.27464" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://uic-indexlab.github.io/Needle/demo/search" target="_blank" rel="noopener noreferrer">Interactive Demo</a>
+                    <a href="https://github.com/UIC-InDeXLab/Needle" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Team</p>
+          <h2>Project investigators</h2>
+        </div>
+        <div class="team-list">
+          <div class="team-item">
+            <h3><a href="https://www.cs.uic.edu/~asudeh/" target="_blank" rel="noopener noreferrer">A. Asudeh</a></h3>
+            <p>Faculty</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://merfanian.github.io/" target="_blank" rel="noopener noreferrer">Mahdi Erfanian</a></h3>
+            <p>Lead PhD Student</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://mohsendehghankar.github.io/" target="_blank" rel="noopener noreferrer">Mohsen Dehghankar</a></h3>
+            <p>PhD Student</p>
+          </div>
+          <div class="team-item">
+            <h3><a href="https://financelawpolicy.umich.edu/faculty/h-jagadish" target="_blank" rel="noopener noreferrer">H. V. Jagadish</a></h3>
+            <p>Collaborator · Distinguished University Professor · University of Michigan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Generative AI for Data Management</p>
+      <p>InDeX Lab · UIC Computer Science</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
