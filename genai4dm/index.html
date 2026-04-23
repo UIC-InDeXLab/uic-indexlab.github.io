@@ -22,7 +22,7 @@
       <div class="hero-layout">
         <div class="hero-main">
           <div class="eyebrow">Project Website</div>
-          <h1>Generative AI for Data Management</h1>
+          <h1>Generative AI for Multi-modal Data Management</h1>
           <p class="subtitle">
             Generative models as first-class operators in future data systems
           </p>
@@ -157,6 +157,8 @@
               <li><a href="#needle-arxiv-2024">NEEDLE</a></li>
               <li><a href="#chameleon-vldb-2024">Chameleon</a></li>
               <li><a href="#needledb-corr-2026">NeedleDB</a></li>
+              <h5>Beyong GenAI</h5>
+              <li><a href="#crowdsourcing-edbt-2024">Crowdsourcing for Image Data Coverage</a></li>
             </ol>
             <p class="toc-note">This list will be updated as project papers are added.</p>
           </aside>
@@ -266,6 +268,40 @@
                     <a href="https://arxiv.org/pdf/2603.27464" target="_blank" rel="noopener noreferrer">Paper</a>
                     <a href="https://uic-indexlab.github.io/Needle/demo/search" target="_blank" rel="noopener noreferrer">Interactive Demo</a>
                     <a href="https://github.com/UIC-InDeXLab/Needle" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="crowdsourcing-edbt-2024">
+              <div class="paper-tag">EDBT 2024</div>
+              <h3>Data Coverage for Detecting Representation Bias in Image Datasets: A Crowdsourcing Approach</h3>
+              <p class="paper-meta">
+                Melika Mousavi, Nima Shahbazi, and Abolfazl Asudeh · <em>International Conference on Extending Database Technology (EDBT)</em>, 2024
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/crowdsourcing.jpg" alt="Illustration for the data coverage paper on crowdsourcing-based detection of representation bias in image datasets">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Existing machine learning models often fail on minority groups because the datasets used to train them do not adequately represent those groups. This is especially challenging in social and image datasets, where the relevant protected or demographic attributes may not be explicitly available, making it difficult to determine whether the data sufficiently covers different populations.
+                  </p>
+                  <p>
+                    This paper studies how to identify representation bias in image datasets without relying on explicit attribute values. Using the notion of <em>data coverage</em>, it develops multiple crowdsourcing-based approaches for detecting whether a dataset lacks proper representation for a given group. The core method is a divide-and-conquer algorithm with search-space pruning, designed to efficiently discover coverage gaps while keeping the human labeling effort manageable.
+                  </p>
+                  <p>
+                    Beyond the base algorithm, the work provides a distinct theoretical analysis, including a tight upper bound that establishes near-optimality. It also introduces heuristics that reduce the cost of coverage detection across both intersectional and non-intersectional groups, and it shows that relying only on pre-trained predictors is not sufficient for dependable bias detection in this setting.
+                  </p>
+                  <p>
+                    Finally, the paper extends the framework to make use of existing predictive models when possible, reducing crowdsourcing cost without fully trusting those models as the final answer. Extensive experiments, including live studies on Amazon Mechanical Turk, validate both the problem formulation and the practical performance of the proposed algorithms.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mousavi, Melika, Nima Shahbazi, and Abolfazl Asudeh. 2024. <em>Data Coverage for Detecting Representation Bias in Image Datasets: A Crowdsourcing Approach</em>. International Conference on Extending Database Technology (EDBT).
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://openproceedings.org/2024/conf/edbt/Data_Coverage_EDBT_CRV.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
                   </p>
                 </div>
               </div>
