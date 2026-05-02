@@ -18,11 +18,11 @@ st+= '        <a class="nav-link dropdown-toggle" id="fundedProjectsDropdown" ro
 st+= '          Active Projects';
 st+= '        </a>';
 st+= '        <div class="dropdown-menu" aria-labelledby="fundedProjectsDropdown">';
-st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'nsf-iis-2348919/index.html">NSF IIS-2348919 | Fairness-aware Data Structures</a>';
+st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'nsf-iis-2348919/index.html">Fairness-aware Data Structures</a>';
 st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'efficient-llm-inference/index.html">Efficient LLM Inference</a>';
 st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'trustworthy-llms-and-llm-agents/index.html">Trustworthy LLMs and LLM Agents</a>';
 st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'genai4dm/index.html">Generative AI for Multimodal Data Management</a>';
-st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'vectordb/index.html">VectorDB | Theoretically-sound and Practically-efficient Vector Data Retrieval</a>';
+st+= '          <a class="dropdown-item"  target="_blank" href="'+path+'vectordb/index.html">VectorDB: Efficient Vector Data Retrieval</a>';
 st+= '        </div>';
 st += '    </li> ';
 //st += '    <li class="nav-item active"> ';
