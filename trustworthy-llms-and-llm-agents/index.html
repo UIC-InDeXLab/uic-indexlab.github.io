@@ -139,7 +139,8 @@
               <li><a href="#paper-1">Responsibility Lens Survey</a></li>
               <li><a href="#paper-2">Credibility Scoring</a></li>
               <li><a href="#paper-3">Rank It, Then Ask It</a></li>
-              <li><a href="#paper-4">AXOLOTL</a></li>
+              <li><a href="#paper-4">REQUAL-LM</a></li>
+              <li><a href="#paper-5">AXOLOTL</a></li>
             </ol>
             <p class="toc-note">This list will be updated during the course of project.</p>
           </aside>
@@ -328,6 +329,61 @@
             </article>
 
             <article class="paper-card" id="paper-4">
+              <div class="paper-tag">NAACL 2024</div>
+              <h3>REQUAL-LM: Reliability and Equity through Aggregation in Large Language Models</h3>
+              <p class="paper-meta">
+                Sana Ebrahimi, Nima Shahbazi, and Abolfazl Asudeh · <em>Findings of the Association for Computational Linguistics: NAACL 2024</em>, 2024
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/requal.jpg" alt="Illustration for the REQUAL-LM paper on reliable and equitable LLM output aggregation">
+                </figure>
+                <div class="paper-feature-copy">
+                  <p>
+                    Large language models are increasingly used in domains with
+                    real societal consequences, but their randomized behavior
+                    can make outputs unstable. At the same time, biases and
+                    historical stereotypes embedded in data can lead models to
+                    produce responses that are unreliable, inequitable, or
+                    harmful for underrepresented groups.
+                  </p>
+                  <p>
+                    REQUAL-LM addresses this challenge through aggregation. The
+                    paper develops a Monte Carlo method based on repeated
+                    sampling, using multiple LLM outputs to identify a reliable
+                    response that stays close to the mean of the underlying
+                    distribution of possible answers. This turns randomness from
+                    a deployment risk into a signal that can be measured and
+                    stabilized.
+                  </p>
+                  <p>
+                    The method also introduces equity-aware aggregation. By
+                    formally defining reliability and bias, REQUAL-LM can search
+                    for outputs that are both dependable and less harmful,
+                    selecting responses that better represent minority groups
+                    while reducing unfair effects in the final answer.
+                  </p>
+                  <p>
+                    A key strength of the system is its practicality: it treats
+                    LLMs as black boxes, requires no retraining or specialized
+                    hardware, and avoids imposing a significant computational
+                    load. Experiments across multiple tasks and datasets show
+                    that REQUAL-LM can mitigate bias while selecting more
+                    reliable and equitable responses, making it well suited for
+                    deployment settings where model internals are unavailable.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Sana Ebrahimi, Nima Shahbazi, and Abolfazl Asudeh. 2024. <em>REQUAL-LM: Reliability and Equity through Aggregation in Large Language Models</em>. In Findings of the Association for Computational Linguistics: NAACL 2024, pages 549-560, Mexico City, Mexico. Association for Computational Linguistics.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://aclanthology.org/2024.findings-naacl.37/" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://asudeh.github.io/files/RequalLM-asudeh.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="paper-5">
               <div class="paper-tag">ICKG 2024</div>
               <h3>AXOLOTL: Fairness through Assisted Self-Debiasing of Large Language Model Outputs</h3>
               <p class="paper-meta">
