@@ -20,14 +20,24 @@
     </script>
     <style>
       .carousel-caption {
-        background-color: rgba(0, 0, 0, 0.4); /* Transparent dark background */
+        background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
         border-radius: 0.5rem;
-        padding: 0.5rem 1rem;
+        padding: 1rem 1.5rem;
+        backdrop-filter: blur(2px);
       }
 
       .carousel-caption h5 {
         color: #ffffff;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Improves text visibility */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin: 0;
+      }
+
+      .carousel-inner {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
       }
     </style>
 </head>
@@ -87,7 +97,40 @@
       </div>
       </div>
     </div>
-    <div>&nbsp;</div>
+
+<div>&nbsp;</div>
+  <div class="card contentBoxNB">
+    <div class="card-header">
+       Active Projects — Current lab directions. <span style="float: right; font-size: 0.9rem;"><a href="pastprojects.htm" style="color: white;">See past projects →</a></span>
+    </div>
+    <div class="card-body">
+        <div class="active-projects-list">
+          <a href="https://www.cs.uic.edu/~indexlab/nsf-iis-2348919/index.html" target="_blank" class="project-box">
+            <span>Fairness-aware Data Structures</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a href="https://www.cs.uic.edu/~indexlab/efficient-llm-inference/index.html" target="_blank" class="project-box">
+            <span>Efficient LLM Inference</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a href="https://www.cs.uic.edu/~indexlab/trustworthy-llms-and-llm-agents/index.html" target="_blank" class="project-box">
+            <span>Trustworthy LLMs and LLM Agents</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a href="https://www.cs.uic.edu/~indexlab/genai4dm/index.html" target="_blank" class="project-box">
+            <span>Generative AI for Multimodal Data Management</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a href="https://www.cs.uic.edu/~indexlab/vectordb/index.html" target="_blank" class="project-box">
+            <span>VectorDB: Efficient Vector Data Retrieval</span>
+            <span class="external-icon">↗</span>
+          </a>
+        </div>   
+    </div>
+  </div>
+
+  <!--
+  <div>&nbsp;</div>
   <div class="card contentBoxNB">
     <div class="card-header">Highlights</div>
     <div class="card-body" style="height: 80pt; overflow-y: scroll;">
@@ -117,7 +160,8 @@
         </ul>   
     </div>
   </div>
-
+-->
+  
   <div>&nbsp;</div>
   <div class="card contentBoxNB">
     <div class="card-header">News and Announcements</div>
