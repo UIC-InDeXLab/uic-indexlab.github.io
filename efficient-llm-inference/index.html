@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Efficient LLM Inference</title>
-  <meta name="description" content="Project webpage for Efficient On-device LLM Inference." />
+  <meta name="description" content="Project webpage for Efficient LLM Inference across low-bit computation and KV-cache attention retrieval." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://uic-indexlab.github.io/efficient-llm-inference/" />
-  <meta property="og:title" content="Efficient On-device LLM Inference" />
-  <meta property="og:description" content="Project webpage for Efficient On-device LLM Inference." />
+  <meta property="og:title" content="Efficient LLM Inference" />
+  <meta property="og:description" content="Project webpage for Efficient LLM Inference across low-bit computation and KV-cache attention retrieval." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://uic-indexlab.github.io/efficient-llm-inference/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +24,10 @@
           <div class="eyebrow">Project Website</div>
           <h1>Efficient LLM Inference</h1>
           <p class="subtitle">
-            Efficient (and privacy-preserving) inference on personal devices
+            Efficient inference through indexing, kernels, and KV-cache retrieval
           </p>
           <p class="hero-text">
-            This project advances systems and algorithmic foundations for running large language models efficiently on personal devices, reducing dependence on cloud-only deployment while improving privacy, accessibility, and cost efficiency.
+            This project advances algorithmic and systems foundations for efficient large language model inference, spanning exact acceleration for low-bit matrix-vector multiplication, optimized CPU/CUDA kernels, and recall-guaranteed sparse attention over the KV cache.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#overview">Project Overview</a>
@@ -57,13 +57,16 @@
         </div>
         <div>
           <p>
-            The efficiency of large language model inference is fundamentally shaped by low-level kernel execution, especially matrix-vector multiplication. Although low-bit quantization has reduced model size, practical inference pipelines still suffer from inefficient memory access and limited hardware utilization, making high-quality LLM inference expensive and difficult to deploy on commodity devices.
+            The efficiency of large language model inference is shaped by more than one bottleneck. Low-bit quantization reduces model size, but inference still depends on fast matrix-vector multiplication over binary and ternary weight matrices. Long-context decoding introduces another cost: each generated token must use the KV cache to attend over previously computed keys and values.
           </p>
           <p>
-            As a result, advanced LLM capabilities remain concentrated in cloud environments backed by powerful GPU servers. While cloud-based inference broadens access, it also introduces recurring monetary and energy costs, network-dependent latency, and privacy concerns associated with transmitting user data to external infrastructure.
+            This project studies those bottlenecks through indexing, exact algorithms, and hardware-aware implementation. <b><a href="#rsr-icml-2025">RSR</a></b> and RSR++ preprocess fixed low-bit weight matrices into compact indices for exact matrix-vector multiplication. <b><a href="#software-rsr-core">RSR-core</a></b> implements that direction as optimized CPU and CUDA kernels with model-inference integration.
           </p>
           <p>
-            This project aims to shift LLM inference toward a more user-centric and widely accessible model by enabling accurate, private, and efficient execution on personal computers. The broader goal is to support LLM operation without reliance on costly, energy-intensive accelerators or continuous internet connectivity, thereby expanding access to advanced language technologies.
+            <b><a href="#louver">Louver</a></b> extends the project scope to attention itself by formulating sparse attention over the KV cache as a halfspace range-searching problem with zero false negatives relative to a specified relevance threshold.
+          </p>
+          <p>
+            The broader goal is to make LLM inference more efficient and reliable on practical hardware without treating accuracy loss as an unavoidable cost of speed. Across the publications, the project examines when preprocessing, data structures, sparse retrieval, and systems optimization can reduce runtime or memory pressure while preserving exactness, recall guarantees, or clearly characterized approximation limits.
           </p>
         </div>
       </div>
@@ -74,7 +77,7 @@
         <p class="section-label">Project outcomes</p>
         <h2>Softwares</h2>
         <p class="section-intro">
-          Beyond papers, this project also produces software artifacts that make efficient low-bit inference practical in real systems.
+          Beyond papers, this project also produces software artifacts that turn efficient inference methods into runnable systems.
         </p>
 
         <div class="card-grid">
@@ -123,13 +126,14 @@
         <p class="section-label">Project outcomes</p>
         <h2>Publications</h2>
         <p class="section-intro">
-          This project currently includes three papers on algorithmic and systems foundations for efficient low-bit neural inference.
+          This project currently includes four papers on algorithmic and systems foundations for efficient neural inference, covering low-bit matrix-vector multiplication, optimized inference kernels, KV-cache sparse attention, and related limits of sampling-based neural computation.
         </p>
 
         <div class="pub-layout">
           <aside class="pub-toc">
             <h3>Publications</h3>
             <ol>
+              <li><a href="#louver">Louver</a></li>
               <li><a href="#rsr-icml-2025">RSR and RSR++</a></li>
               <li><a href="#rsr-core">RSR-core</a></li>
               <h4>Extended Scope</h4>
@@ -139,6 +143,44 @@
           </aside>
 
           <div class="pub-content">
+            <article class="paper-card" id="louver">
+              <div class="paper-tag">CoRR 2026</div>
+              <h3>Sparse Attention as a Range Searching Problem: Towards an Inference-Efficient Index for KV Cache</h3>
+              <p class="paper-meta">
+                Mohsen Dehghankar and Abolfazl Asudeh · <em>CoRR</em> abs/2605.06763 (Preprint), 2026
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/louver.jpg" alt="Illustration for the Louver sparse attention KV cache indexing paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Sparse attention improves LLM inference efficiency by selecting a subset of key–value (KV) entries, but at the cost of potential accuracy degradation. In particular, omitting critical KV entries can induce substantial errors in model outputs. Existing methods typically operate under fixed or adaptive token budgets and provide empirical robustness or partial theoretical guarantees, yet they do not ensure zero false negatives across decoding steps, particularly since the set of relevant tokens is both query- and step-dependent.
+                  </p>
+                  <p>
+                    Our empirical observations confirm that missing even one critical key can lead to sharp error spikes, especially in long-output reasoning tasks where the set of important tokens varies throughout decoding. This observation motivates the need for indexing methods that dynamically adapt to these variations across decoding steps while guaranteeing a full recall of the relevant keys above a certain threshold.
+                  </p>
+                  <p>
+                    We address this challenge by reformulating sparse attention as the computational geometry problem of halfspace range searching. However, existing range searching data structures are not suitable for modern LLM inference due to their computational and implementation overheads. To overcome this, we introduce <em>Louver</em>, a novel index structure tailored for efficient KV cache retrieval.
+                  </p>
+                  <p>
+                    Louver (i) guarantees zero false negatives with respect to a specified threshold in both theory and practice, (ii) is lightweight to integrate into existing LLM inference pipelines, and (iii) incorporates hardware-aware optimizations for both CPU and GPU executions.
+                  </p>
+                  <p>
+                    Our experiments demonstrate that Louver outperforms prior sparse attention methods in both accuracy and runtime, and is faster than highly optimized dense implementations such as FlashAttention. These results highlight that recall guarantees are a critical and overlooked dimension of sparse attention, and open a new direction for building theoretically grounded, efficient KV cache indices.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Mohsen Dehghankar and Abolfazl Asudeh. <em>Sparse Attention as a Range Searching Problem: Towards an Inference-Efficient Index for KV Cache</em>. CoRR, abs/2605.06763 (Preprint) 2026.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://arxiv.org/pdf/2605.06763" target="_blank" rel="noopener noreferrer">Paper</a>
+                    <a href="https://github.com/UIC-InDeXLab/Louver" target="_blank" rel="noopener noreferrer">Code</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
             <article class="paper-card" id="rsr-icml-2025">
               <div class="paper-tag">ICML 2025</div>
               <h3>An Efficient Matrix Multiplication Algorithm for Accelerating Inference in Binary and Ternary Neural Networks</h3>
@@ -164,7 +206,7 @@
                     Beyond the theoretical guarantees, the method delivers strong practical gains. Experiments show up to 30× faster matrix multiplication, up to 6× lower memory usage, up to 6× faster LLM inference on CPU without system-level optimization, and up to 2.5× faster LLM inference on GPU. The design also exposes substantial parallelism, since computations across column blocks are independent and can be executed concurrently.
                   </p>
                   <p>
-                    More broadly, this work shows that efficient on-device inference can be advanced not only through model compression, but also through better exact algorithms for the core operations that dominate runtime. In that sense, it provides an algorithmic foundation for making capable neural models more practical, affordable, and accessible on commodity hardware.
+                    More broadly, this work shows that efficient inference can be advanced not only through model compression, but also through better exact algorithms for the core operations that dominate runtime. In that sense, it provides an algorithmic foundation for making capable neural models more practical, affordable, and accessible on commodity hardware.
                   </p>
                   <p class="paper-citation">
                     Citation: Mohsen Dehghankar, Mahdi Erfanian, and Abolfazl Asudeh. 2025. <em>An Efficient Matrix Multiplication Algorithm for Accelerating Inference in Binary and Ternary Neural Networks</em>. In Proceedings of the 42nd International Conference on Machine Learning, Vol. 267, pp. 12969-12986.
@@ -202,7 +244,7 @@
                     Experimentally, RSR-core delivers substantial performance improvements over baseline Hugging Face PyTorch multiplication. The results show up to 62× speedup on CPU and up to 1.9× faster token generation on CUDA for popular ternary LLMs, demonstrating that low-bit acceleration can translate into meaningful end-to-end gains when paired with a systems-oriented implementation.
                   </p>
                   <p>
-                    More broadly, this work advances the project’s goal of making efficient on-device inference practical by turning a theoretically grounded algorithm into a deployable engine. In doing so, it strengthens the systems foundation for low-bit LLM inference on both commodity CPUs and modern GPUs.
+                    More broadly, this work advances the project’s goal of making efficient LLM inference practical by turning a theoretically grounded algorithm into a deployable engine. In doing so, it strengthens the systems foundation for low-bit LLM inference on both commodity CPUs and modern GPUs.
                   </p>
                   <p class="paper-citation">
                     Citation: Mohsen Dehghankar and Abolfazl Asudeh. 2026. <em>RSR-core: A High-Performance Engine for Low-Bit Matrix-Vector Multiplication</em>. CoRR abs/2603.27462.
@@ -272,16 +314,9 @@
             <p>Lead PhD Student</p>
           </div>
           <div class="team-item">
-            <h3><a href="https://merfanian.github.io/" target="_blank" rel="noopener noreferrer">Mahdi Erfanian</a></h3>
-            <p>PhD Student</p>
+            <h3><a href="https://merfanian.github.io/" target="_blank" rel="noopener noreferrer">Mahdi Erfanian</a>, <a href="https://www.sanaebrahimi.com/" target="_blank" rel="noopener noreferrer">Sana Ebrahimi</a>, <a href="https://rishi-advani.com/" target="_blank" rel="noopener noreferrer">Rishi Advani</a></h3>
+            <p>Collaborators (PhD Students)</p>
           </div>
-          <div class="team-item">
-            <h3><a href="https://www.sanaebrahimi.com/" target="_blank" rel="noopener noreferrer">Sana Ebrahimi</a></h3>
-            <p>PhD Student</p>
-          </div>
-          <div class="team-item">
-            <h3><a href="https://rishi-advani.com/" target="_blank" rel="noopener noreferrer">Rishi Advani</a></h3>
-            <p>PhD Student</p>
           </div>
         </div>
       </div>
@@ -290,7 +325,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>Efficient and Private On-device LLM Inference</p>
+      <p>Efficient LLM Inference</p>
       <p>InDeX Lab · UIC Computer Science</p>
     </div>
   </footer>
