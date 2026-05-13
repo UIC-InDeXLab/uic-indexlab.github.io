@@ -1,6 +1,6 @@
 function header(path='') {
 st = '<nav class="navbar navbar-expand-lg navbar-light bg-light"> ';
-st += '<a class="navbar-brand" href="projects.htm" style="color:#ffcb05;"> ';
+st += '<a class="navbar-brand" href="index.htm" style="color:#ffcb05;"> ';
 //st += '        <img src="'+path+'imgs/home.ico" height="40pt" alt="Home!">';
 st += '        <img src="'+path+'imgs/InDeXLab2.gif" height="40pt" alt="Home!">';
 st += '</a> ';
