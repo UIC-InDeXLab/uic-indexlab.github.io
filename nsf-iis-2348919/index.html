@@ -85,6 +85,7 @@
               <li><a href="#fair-set-cover">Fair Set Cover</a></li>
               <li><a href="#dynamic-necklace-splitting">Dynamic Necklace Splitting</a></li>
               <li><a href="#mining-the-minoria">Mining the Minoria</a></li>
+              <li><a href="#unbiased-binning">Unbiased Binning</a></li>
             </ol>
             <p class="toc-note">This list will be updated during the course of project.</p>
           </aside>
@@ -349,6 +350,40 @@
                   <p class="paper-links">
                     <a href="https://www.vldb.org/pvldb/vol18/p1453-dehghankar.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
                     <a href="https://asudeh.github.io/files/MinorityMining_VLDB25.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paper-card" id="unbiased-binning">
+              <div class="paper-tag">VLDB 2026</div>
+              <h3>Unbiased Binning</h3>
+              <p class="paper-meta">
+                Abolfazl Asudeh, Zeinab Asoodeh, Bita Asoodeh, and Omid Asudeh · <em>Proceedings of the VLDB Endowment</em>, Vol. 19, 2026
+              </p>
+              <div class="paper-feature">
+                <figure class="paper-figure">
+                  <img src="imgs/UnbiasedBinning.jpg" alt="Illustration for the Unbiased Binning paper">
+                </figure>
+
+                <div class="paper-feature-copy">
+                  <p>
+                    Discretizing raw features into bucketized attributes is a common step before sharing a dataset. However, this process can inadvertently introduce bias and amplify unfairness in downstream tasks.
+                  </p>
+                  <p>
+                    This work formulates the unbiased binning problem, which seeks bucketized attributes that satisfy group parity. The paper develops an efficient dynamic programming algorithm for equal-size binning, while also showing that perfect parity may come with a high price of fairness or may not exist when group distributions differ substantially.
+                  </p>
+                  <p>
+                    To support settings where small deviations from perfect parity are acceptable, the paper introduces <em>epsilon</em>-biased binning, which limits group disparities across buckets to at most <em>epsilon</em>. It first presents a quadratic-time dynamic programming algorithm, then addresses scalability with a local search strategy whose divide-and-conquer component finds valid solutions in near-linear time whenever one exists.
+                  </p>
+                  <p>
+                    The local search and divide-and-conquer algorithms are general and are not limited to equal-size binning. Extensive experiments on real-world and synthetic datasets confirm the efficiency of the algorithms and show that fairness-unaware binning can generate biased attribute representations, while fairness-aware binning can significantly reduce this bias with negligible price of fairness.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Abolfazl Asudeh, Zeinab Asoodeh, Bita Asoodeh, Omid Asudeh. <em>Unbiased Binning: Fairness-aware Attribute Representation</em>. Proceedings of the VLDB Endowment, Vol 19, 2026.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://arxiv.org/pdf/2509.21785" target="_blank" rel="noopener noreferrer">Technical Report</a>
                   </p>
                 </div>
               </div>
