@@ -86,5 +86,5 @@ st+= '            <td width="10pt">&nbsp;</td>';
 st+= '        </tr>';
 st+= '</table>';
 */
-headerDiv.innerHTML = st;
+document.getElementById("headerDiv").innerHTML = st;
 }
