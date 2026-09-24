@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Efficient LLM Inference</title>
-  <meta name="description" content="Project webpage for Efficient LLM Inference across low-bit computation and KV-cache attention retrieval." />
+  <title>LLM Efficiency through Inference Data Structures</title>
+  <meta name="description" content="Research on inference data structures that organize reusable model weights and KV-cache state for efficient, reliable AI inference." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://uic-indexlab.github.io/efficient-llm-inference/" />
-  <meta property="og:title" content="Efficient LLM Inference" />
-  <meta property="og:description" content="Project webpage for Efficient LLM Inference across low-bit computation and KV-cache attention retrieval." />
+  <meta property="og:title" content="Inference Data Structures: The Missing Infrastructure of Modern AI" />
+  <meta property="og:description" content="Research on inference data structures that organize reusable model weights and KV-cache state for efficient, reliable AI inference." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://uic-indexlab.github.io/efficient-llm-inference/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +22,9 @@
       <div class="hero-layout">
         <div class="hero-main">
           <div class="eyebrow">Project Website</div>
-          <h1>Efficient LLM Inference</h1>
-          <p class="subtitle">
-            Efficient inference through indexing, kernels, and KV-cache retrieval
-          </p>
+          <h1>LLM Efficiency through Inference Data Structures</h1>
           <p class="hero-text">
-            This project advances algorithmic and systems foundations for efficient large language model inference, spanning exact acceleration for low-bit matrix-vector multiplication, optimized CPU/CUDA kernels, and recall-guaranteed sparse attention over the KV cache.
+            This project studies inference data structures (IDSs): reusable indexes and algorithms that organize persistent inference state to reduce the cost of repeated computation while preserving exactness or providing explicit approximation guarantees.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#overview">Project Overview</a>
@@ -53,20 +50,20 @@
       <div class="container two-col">
         <div>
           <p class="section-label">Overview</p>
-          <h2>Project overview</h2>
+          <h2>Inference data structures</h2>
         </div>
         <div>
           <p>
-            The efficiency of large language model inference is shaped by more than one bottleneck. Low-bit quantization reduces model size, but inference still depends on fast matrix-vector multiplication over binary and ternary weight matrices. Long-context decoding introduces another cost: each generated token must use the KV cache to attend over previously computed keys and values.
+            Modern AI inference repeatedly operates over persistent state, including model weights that remain fixed after training and KV caches that grow during autoregressive decoding. The ACM AI Summit paper introduces inference data structures (IDSs) as reusable indexes, coupled with algorithms, that organize this state to reduce future computation while preserving correctness or providing explicit approximation guarantees.
           </p>
           <p>
-            This project studies those bottlenecks through indexing, exact algorithms, and hardware-aware implementation. <b><a href="#rsr-icml-2025">RSR</a></b> and RSR++ preprocess fixed low-bit weight matrices into compact indices for exact matrix-vector multiplication. <b><a href="#software-rsr-core">RSR-core</a></b> implements that direction as optimized CPU and CUDA kernels with model-inference integration.
+            The project develops both classes of IDSs. Static structures over fixed model weights move work into offline preprocessing: <b><a href="#rsr-icml-2025">RSR</a></b> and <b><a href="#software-rsr-core">RSR-core</a></b> organize low-bit matrices for exact matrix-vector multiplication and optimized CPU/CUDA execution.
           </p>
           <p>
-            <b><a href="#louver">Louver</a></b> extends the project scope to attention itself by formulating sparse attention over the KV cache as a halfspace range-searching problem with zero false negatives relative to a specified relevance threshold.
+            Dynamic structures operate on evolving inference state. <b><a href="#louver">Louver</a></b> indexes the KV cache as a halfspace range-searching problem, supporting efficient retrieval during decoding while guaranteeing full recall of keys above a specified relevance threshold.
           </p>
           <p>
-            The broader goal is to make LLM inference more efficient and reliable on practical hardware without treating accuracy loss as an unavoidable cost of speed. Across the publications, the project examines when preprocessing, data structures, sparse retrieval, and systems optimization can reduce runtime or memory pressure while preserving exactness, recall guarantees, or clearly characterized approximation limits.
+            Together, these systems position inference data structures as an algorithmic infrastructure layer between foundation models and runtime hardware. The broader goal is to make inference more efficient and reliable by exposing construction, update, query, memory, hardware, and correctness tradeoffs instead of treating speed and quality as an opaque compromise.
           </p>
         </div>
       </div>
@@ -83,6 +80,7 @@
           <aside class="pub-toc">
             <h3>Publications</h3>
             <ol>
+              <li><a href="#ids-aisummit-2026">Inference Data Structures</a></li>
               <li><a href="#louver">Louver</a></li>
               <li><a href="#rsr-icml-2025">RSR and RSR++</a></li>
               <li><a href="#rsr-core">RSR-core</a></li>
@@ -93,11 +91,41 @@
           </aside>
 
           <div class="pub-content">
+            <article class="paper-card" id="ids-aisummit-2026">
+              <div class="paper-tag">ACM AI Summit 2026</div>
+              <h3>Inference Data Structures: The Missing Infrastructure of Modern AI</h3>
+              <p class="paper-meta">
+                Abolfazl Asudeh and Mohsen Dehghankar · <em>ACM AI Summit '26</em>, 2026
+              </p>
+              <div class="paper-feature">
+                <div class="paper-feature-copy">
+                  <p>
+                    Modern AI inference is usually optimized through model compression, kernel engineering, and hardware acceleration. This paper argues for a complementary algorithmic layer: inference data structures (IDSs), reusable indexes coupled with algorithms that organize persistent inference state to reduce future computational cost while preserving correctness or providing explicit approximation guarantees.
+                  </p>
+                  <p>
+                    The paper distinguishes two classes of IDSs. <em>Static IDSs</em> organize immutable state, such as trained model weights, and can be built offline for repeated exact or approximate operations. <em>Dynamic IDSs</em> organize evolving runtime state, such as the append-only KV cache, and must support online updates as well as low-latency queries during autoregressive decoding.
+                  </p>
+                  <p>
+                    RSR and RSR-core provide representative static IDSs by preprocessing low-bit weight matrices for exact matrix-vector multiplication. Louver provides a representative dynamic IDS by indexing the KV cache as a halfspace range-searching problem, enabling efficient retrieval of relevant tokens with full recall above a specified threshold.
+                  </p>
+                  <p>
+                    The paper presents IDSs as an infrastructure layer between foundation models and runtime hardware. It identifies open questions around discovering reusable inference variables, defining construction, update, and query interfaces, co-designing indexes with target hardware, and measuring query latency, storage overhead, token throughput, memory use, energy, and model-quality preservation.
+                  </p>
+                  <p class="paper-citation">
+                    Citation: Abolfazl Asudeh and Mohsen Dehghankar. 2026. <em>Inference Data Structures: The Missing Infrastructure of Modern AI</em>. In ACM AI Summit '26, Atlanta, GA, USA. ACM. DOI: 10.1145/3806096.3844820.
+                  </p>
+                  <p class="paper-links">
+                    <a href="https://asudeh.github.io/files/AISummit68.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
             <article class="paper-card" id="louver">
-              <div class="paper-tag">CoRR 2026</div>
+              <div class="paper-tag">NeurIPS 2026</div>
               <h3>Sparse Attention as a Range Searching Problem: Towards an Inference-Efficient Index for KV Cache</h3>
               <p class="paper-meta">
-                Mohsen Dehghankar and Abolfazl Asudeh · <em>CoRR</em> abs/2605.06763 (Preprint), 2026
+                Mohsen Dehghankar and Abolfazl Asudeh · <em>NeurIPS</em>, 2026
               </p>
               <div class="paper-feature">
                 <figure class="paper-figure">
@@ -121,7 +149,7 @@
                     Our experiments demonstrate that Louver outperforms prior sparse attention methods in both accuracy and runtime, and is faster than highly optimized dense implementations such as FlashAttention. These results highlight that recall guarantees are a critical and overlooked dimension of sparse attention, and open a new direction for building theoretically grounded, efficient KV cache indices.
                   </p>
                   <p class="paper-citation">
-                    Citation: Mohsen Dehghankar and Abolfazl Asudeh. <em>Sparse Attention as a Range Searching Problem: Towards an Inference-Efficient Index for KV Cache</em>. CoRR, abs/2605.06763 (Preprint) 2026.
+                    Citation: Mohsen Dehghankar and Abolfazl Asudeh. <em>Sparse Attention as a Range Searching Problem: Towards an Inference-Efficient Index for KV Cache</em>. In NeurIPS, 2026.
                   </p>
                   <p class="paper-links">
                     <a href="https://arxiv.org/pdf/2605.06763" target="_blank" rel="noopener noreferrer">Paper</a>
