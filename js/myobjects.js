@@ -53,7 +53,7 @@ switch(name){
 
 function getname(name){
 switch(name){
-	case "abol": return "Abolfazl Asudeh";
+	case "abol": return "A. Asudeh";
 	case "fn": return "Fatemeh Nargesian";
 	case "gautam": return "Gautam Das";
 	case "jag": return "H. V. Jagadish";
