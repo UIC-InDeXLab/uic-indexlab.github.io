@@ -23,6 +23,7 @@ switch(name){
 	case "rishi": return "https://rishi-advani.com/";
 	case "sana": return "https://www.linkedin.com/in/sana-ebrahimi-872382131";
 	case "mahdi": return "https://www.linkedin.com/in/merfanian/";
+	case "vera": return "https://www.linkedin.com/in/veradureke/";
 	default:
 		return "#";
 	}
@@ -81,6 +82,7 @@ switch(name){
 	case "aliF": return "Ali Farajzadeh";
 	case "mohsen": return "Mohsen Dehghankar";
 	case "mahdi": return "Mohammad Mahdi Erfanian";
+	case "vera": return "Vera Dureke";
 	default: return "";
 	}
-}		
+}
